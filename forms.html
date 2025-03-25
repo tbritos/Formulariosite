@@ -1,139 +1,217 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+    }
 
-        .container {
-            width: 100%;
-            max-width: 890px;
-            height: 100vh;
-            margin: 0 auto;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            background: none;
-            padding: 20px;
-            overflow: auto;
-        }
+    .container {
+      width: 100%;
+      max-width: 890px;
+      height: 100vh;
+      margin: 0 auto;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 20px;
+      overflow: auto;
+    }
 
-        form {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            flex: 1;
-        }
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
 
-        label {
-            font-weight: bold;
-            display: block;
-            margin: 0;
-        }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 0;
+    }
 
-        input, select, button {
-            max-width: 500px;
-            width: 100%;
-            padding: 20px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
+    input, select, button {
+      max-width: 500px;
+      width: 100%;
+      padding: 20px;
+      margin: 5px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
 
-        button {
-            background-color: #4a61f5;
-            color: white;
-            cursor: pointer;
-            margin-top: 10px;
-            border: none;
-        }
+    button {
+      background-color: #4a61f5;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+      border: none;
+    }
 
-        button:hover {
-            background-color: #3a51d4;
-        }
+    button:hover {
+      background-color: #3a51d4;
+    }
 
-        .checkbox {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-            font-size: 14px;
-            max-width: 500px;
-        }
+    .checkbox {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      font-size: 14px;
+      max-width: 500px;
+    }
 
-        #privacidade {
-            width: 16px;
-            height: 16px;
-            margin-right: 5px;
-        }
-    </style>
+    #privacidade {
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <form>
-            <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+  <div class="container">
+    <form>
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome"/>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Digite seu email">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu email"/>
 
-            <label for="telefone">Telefone</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="Ex: (99) 99999-9999">
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="Ex: (99) 99999-9999"/>
 
-            <label for="segmento">Segmento</label>
-            <select id="segmento" name="segmento">
-                <option value="">Selecione um segmento</option>
-                <option value="montadora">Montadora</option>
-                <option value="concessionaria">Concessionária</option>
-                <option value="revenda">Revenda</option>
-                <option value="oficina">Oficina</option>
-                <option value="seguradora">Seguradora</option>
-                <option value="blindadora">Blindadora</option>
-                <option value="financeira">Financeira</option>
-                <option value="consorcio">Consórcio</option>
-            </select>
+      <label for="segmento">Segmento</label>
+      <select id="segmento" name="segmento">
+        <option value="">Selecione um segmento</option>
+        <option value="montadora">Montadora</option>
+        <option value="concessionaria">Concessionária</option>
+        <option value="revenda">Revenda</option>
+        <option value="oficina">Oficina</option>
+        <option value="seguradora">Seguradora</option>
+        <option value="blindadora">Blindadora</option>
+        <option value="financeira">Financeira</option>
+        <option value="consorcio">Consórcio</option>
+      </select>
 
-            <label for="area">Área</label>
-            <select id="area" name="area">
-                <option value="">Selecione uma área</option>
-                <option value="marketing">Marketing</option>
-                <option value="vendas">Vendas</option>
-                <option value="crm">CRM</option>
-                <option value="gestao">Gestão</option>
-                <option value="posvenda">Pós-venda</option>
-            </select>
+      <label for="area">Área</label>
+      <select id="area" name="area">
+        <option value="">Selecione uma área</option>
+        <option value="marketing">Marketing</option>
+        <option value="vendas">Vendas</option>
+        <option value="crm">CRM</option>
+        <option value="gestao">Gestão</option>
+        <option value="posvenda">Pós-venda</option>
+      </select>
 
-            <label for="cargo">Cargo</label>
-            <select id="cargo" name="cargo">
-                <option value="">Selecione um cargo</option>
-                <option value="assistente">Assistente</option>
-                <option value="vendedor">Vendedor</option>
-                <option value="analista">Analista</option>
-                <option value="especialista">Especialista</option>
-                <option value="coordenador">Coordenador</option>
-                <option value="gerente">Gerente</option>
-                <option value="diretor">Diretor</option>
-                <option value="titular">Titular</option>
-            </select>
+      <label for="cargo">Cargo</label>
+      <select id="cargo" name="cargo">
+        <option value="">Selecione um cargo</option>
+        <option value="assistente">Assistente</option>
+        <option value="vendedor">Vendedor</option>
+        <option value="analista">Analista</option>
+        <option value="especialista">Especialista</option>
+        <option value="coordenador">Coordenador</option>
+        <option value="gerente">Gerente</option>
+        <option value="diretor">Diretor</option>
+        <option value="titular">Titular</option>
+      </select>
 
-            <div class="checkbox">
-                <input type="checkbox" id="privacidade" name="privacidade">
-                <label for="privacidade">Concordo com a <a href="https://lp.autoforce.com/pol%C3%ADtica-de-privacidade" target="_blank">Política de Privacidade</a></label>
-            </div>
+      <div class="checkbox">
+        <input type="checkbox" id="privacidade" name="privacidade"/>
+        <label for="privacidade">
+          Concordo com a <a href="https://lp.autoforce.com/pol%C3%ADtica-de-privacidade" target="_blank">Política de Privacidade</a>
+        </label>
+      </div>
 
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- SCRIPT JS AQUI -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form');
+
+      // Máscara de telefone
+      const telefoneInput = document.getElementById('telefone');
+      telefoneInput.addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, '');
+
+        if (value.length > 2) {
+          value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
+        }
+        if (value.length > 10) {
+          value = `${value.substring(0, 10)}-${value.substring(10)}`;
+        }
+
+        e.target.value = value;
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const nome = document.getElementById('nome').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const telefone = document.getElementById('telefone').value.replace(/\D/g, '');
+        const segmento = document.getElementById('segmento').value;
+        const area = document.getElementById('area').value;
+        const cargo = document.getElementById('cargo').value;
+        const privacidade = document.getElementById('privacidade').checked;
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let errors = [];
+
+        if (!nome) errors.push('Nome é obrigatório.');
+        if (!emailRegex.test(email)) errors.push('Email inválido.');
+        if (telefone.length < 10) errors.push('Telefone inválido.');
+        if (!segmento) errors.push('Selecione um segmento.');
+        if (!area) errors.push('Selecione uma área.');
+        if (!cargo) errors.push('Selecione um cargo.');
+        if (!privacidade) errors.push('Você precisa aceitar a Política de Privacidade.');
+
+        if (errors.length > 0) {
+          alert(errors.join('\n'));
+          return;
+        }
+
+        const data = {
+          nome,
+          email,
+          telefone,
+          segmento,
+          area,
+          cargo
+        };
+
+        // Envio (coloque seu endpoint real aqui)
+        fetch('https://webhook.hablla.com/v1/67e2f9736e7b05224d7e7f3d', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(res => {
+          if (!res.ok) throw new Error('Erro ao enviar formulário.');
+          return res.json();
+        })
+        .then(() => {
+          alert('Formulário enviado com sucesso!');
+          form.reset();
+        })
+        .catch(err => {
+          console.error(err);
+          alert('Erro ao enviar. Tente novamente mais tarde.');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
