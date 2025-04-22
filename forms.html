@@ -6,11 +6,13 @@
   <title>Formulário</title>
 
   <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id=GTM-52W39ZKB'+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-52W39ZKB');</script>
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-52W39ZKB');
+  </script>
   <!-- End Google Tag Manager -->
 
   <style>
@@ -19,16 +21,17 @@
       padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
-      background-color: #111827;
+      background-color: #111827; /* Azul escuro como original */
     }
     .container { width: 100%; max-width: 890px; height: 100vh; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; padding: 20px; overflow: auto; }
     form { width: 100%; display: flex; flex-direction: column; flex: 1; }
-    label { font-weight: bold; display: block; margin: 0; }
+    label { font-weight: bold; display: block; margin: 0; color: white; }
     input, select, button { max-width: 500px; width: 100%; padding: 20px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
     button { background-color: #4a61f5; color: white; cursor: pointer; margin-top: 10px; border: none; }
     button:hover { background-color: #3a51d4; }
-    .checkbox { display: flex; align-items: center; margin-top: 10px; font-size: 14px; max-width: 500px; }
+    .checkbox { display: flex; align-items: center; margin-top: 10px; font-size: 14px; max-width: 500px; color: white; }
     #privacidade { width: 16px; height: 16px; margin-right: 5px; }
+    .checkbox a { color: #4a61f5; text-decoration: underline; }
   </style>
 </head>
 
