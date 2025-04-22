@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Formulário</title>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id=GTM-52W39ZKB'+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-52W39ZKB');</script>
+  <!-- End Google Tag Manager -->
+
   <style>
     html, body {
       margin: 0;
@@ -12,72 +21,23 @@
       font-family: Arial, sans-serif;
       background-color: #ffffff;
     }
-
-    .container {
-      width: 100%;
-      max-width: 890px;
-      height: 100vh;
-      margin: 0 auto;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      padding: 20px;
-      overflow: auto;
-    }
-
-    form {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    label {
-      font-weight: bold;
-      display: block;
-      margin: 0;
-    }
-
-    input, select, button {
-      max-width: 500px;
-      width: 100%;
-      padding: 20px;
-      margin: 5px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-      font-size: 16px;
-    }
-
-    button {
-      background-color: #4a61f5;
-      color: white;
-      cursor: pointer;
-      margin-top: 10px;
-      border: none;
-    }
-
-    button:hover {
-      background-color: #3a51d4;
-    }
-
-    .checkbox {
-      display: flex;
-      align-items: center;
-      margin-top: 10px;
-      font-size: 14px;
-      max-width: 500px;
-    }
-
-    #privacidade {
-      width: 16px;
-      height: 16px;
-      margin-right: 5px;
-    }
+    .container { width: 100%; max-width: 890px; height: 100vh; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; padding: 20px; overflow: auto; }
+    form { width: 100%; display: flex; flex-direction: column; flex: 1; }
+    label { font-weight: bold; display: block; margin: 0; }
+    input, select, button { max-width: 500px; width: 100%; padding: 20px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+    button { background-color: #4a61f5; color: white; cursor: pointer; margin-top: 10px; border: none; }
+    button:hover { background-color: #3a51d4; }
+    .checkbox { display: flex; align-items: center; margin-top: 10px; font-size: 14px; max-width: 500px; }
+    #privacidade { width: 16px; height: 16px; margin-right: 5px; }
   </style>
 </head>
+
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52W39ZKB"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <div class="container">
     <form>
       <label for="nome">Nome</label>
@@ -136,7 +96,7 @@
     </form>
   </div>
 
-  <!-- SCRIPT JS AQUI -->
+  <!-- SCRIPT JS -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.querySelector('form');
@@ -145,14 +105,8 @@
       const telefoneInput = document.getElementById('telefone');
       telefoneInput.addEventListener('input', function (e) {
         let value = e.target.value.replace(/\D/g, '');
-
-        if (value.length > 2) {
-          value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
-        }
-        if (value.length > 10) {
-          value = `${value.substring(0, 10)}-${value.substring(10)}`;
-        }
-
+        if (value.length > 2) { value = `(${value.substring(0, 2)}) ${value.substring(2)}`; }
+        if (value.length > 10) { value = `${value.substring(0, 10)}-${value.substring(10)}`; }
         e.target.value = value;
       });
 
@@ -183,16 +137,8 @@
           return;
         }
 
-        const data = {
-          nome,
-          email,
-          telefone,
-          segmento,
-          area,
-          cargo
-        };
+        const data = { nome, email, telefone, segmento, area, cargo };
 
-        // Envio (coloque seu endpoint real aqui)
         fetch('https://webhook.hablla.com/v1/67e2ffb437191101d73ce002', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -204,6 +150,20 @@
         })
         .then(() => {
           alert('Formulário enviado com sucesso!');
+
+          // Push para o GTM
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event: 'formEnviadoComSucesso',
+            nome: nome,
+            email: email,
+            telefone: telefone,
+            segmento: segmento,
+            area: area,
+            cargo: cargo
+          });
+
+          console.log('📩 Evento enviado ao GTM com sucesso!');
           form.reset();
         })
         .catch(err => {
