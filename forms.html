@@ -154,7 +154,7 @@
           return;
         }
 
-        const data = { nome, email, telefone, segmento, area, cargo };
+        const data = { nome, email, telefone, segmento, area, cargo, data: new Date().toISOString() };
 
         fetch('https://hook.us1.make.com/sa0wsbynnj8jev4418pknualaxxmjr72', {
           method: 'POST',
@@ -162,38 +162,45 @@
           body: JSON.stringify(data)
         })
         .then(res => {
-          if (!res.ok) throw new Error('Erro ao enviar formulário.');
-          return res.json();
+          if (!res.ok) {
+            throw new Error(`Erro ao enviar formulário. Status: ${res.status}`);
+          }
+          return res.text();
         })
-        .then(() => {
-          alert('Formulário enviado com sucesso!');
+        .then((text) => {
+          console.log('Resposta do servidor:', text);
+          // Se a resposta for "Accepted", consideramos sucesso
+          if (text === "Accepted") {
+            alert('Formulário enviado com sucesso!');
 
-          // Envia eventos para os dois containers
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            event: 'formEnviadoComSucesso',
-            nome: nome,
-            email: email,
-            telefone: telefone,
-            segmento: segmento,
-            area: area,
-            cargo: cargo,
-            data: new Date().toISOString(),
-          });
+            // Envia eventos para os dois containers
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'formEnviadoComSucesso',
+              nome: nome,
+              email: email,
+              telefone: telefone,
+              segmento: segmento,
+              area: area,
+              cargo: cargo,
+            });
 
-          window.dataLayer2 = window.dataLayer2 || [];
-          window.dataLayer2.push({
-            event: 'formEnviadoComSucesso',
-            nome: nome,
-            email: email,
-            telefone: telefone,
-            segmento: segmento,
-            area: area,
-            cargo: cargo
-          });
+            window.dataLayer2 = window.dataLayer2 || [];
+            window.dataLayer2.push({
+              event: 'formEnviadoComSucesso',
+              nome: nome,
+              email: email,
+              telefone: telefone,
+              segmento: segmento,
+              area: area,
+              cargo: cargo
+            });
 
-          console.log('📩 Evento enviado aos dois GTMs com sucesso!');
-          form.reset();
+            console.log('📩 Evento enviado aos dois GTMs com sucesso!');
+            form.reset();
+          } else {
+            throw new Error('Resposta inesperada do servidor');
+          }
         })
         .catch(err => {
           console.error(err);
