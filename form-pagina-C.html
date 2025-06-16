@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulário</title>
+
+  <!-- Google Tag Manager 1 -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-52W39ZKB');
+  </script>
+  <!-- End Google Tag Manager 1 -->
+
+  <!-- Google Tag Manager 2 -->
+  <script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer2'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer2','GTM-52KRNBK');
+  </script>
+  <!-- End Google Tag Manager 2 -->
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      background-color: #111827;
+    }
+    .container { width: 100%; max-width: 890px; height: 100vh; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; padding: 20px; overflow: auto; }
+    form { width: 100%; display: flex; flex-direction: column; flex: 1; }
+    label { font-weight: bold; display: block; margin: 0; color: white; }
+    input, select, button { max-width: 500px; width: 100%; padding: 20px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+    button { background-color: #1440ff; color: white; cursor: pointer; margin-top: 10px; border: none; }
+    button:hover { background-color: #3a51d4; }
+    .checkbox { display: flex; align-items: center; margin-top: 10px; font-size: 14px; max-width: 500px; color: white; }
+    #privacidade { width: 16px; height: 16px; margin-right: 5px; }
+    .checkbox a { color: #4a61f5; text-decoration: underline; }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager 1 (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52W39ZKB"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager 1 (noscript) -->
+
+  <!-- Google Tag Manager 2 (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52KRNBK&l=dataLayer2"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager 2 (noscript) -->
+
+  <div class="container">
+    <form>
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome"/>
+
+      <label for="empresa">Nome da Empresa</label>
+      <input type="text" id="empresa" name="empresa" placeholder="Digite o nome da sua empresa"/>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu email"/>
+
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" name="telefone" placeholder="Ex: (99) 99999-9999"/>
+
+      <label for="segmento">Segmento</label>
+      <select id="segmento" name="segmento">
+        <option value="">Selecione um segmento</option>
+        <option value="montadora">Montadora</option>
+        <option value="concessionaria">Concessionária</option>
+        <option value="revenda">Revenda</option>
+        <option value="seguradora">Seguradora</option>
+        <option value="blindadora">Blindadora</option>
+        <option value="financeira">Financeira</option>
+        <option value="consorcio">Consórcio</option>
+      </select>
+
+      <label for="area">Área</label>
+      <select id="area" name="area">
+        <option value="">Selecione uma área</option>
+        <option value="marketing">Marketing</option>
+        <option value="vendas">Vendas</option>
+        <option value="crm">CRM</option>
+        <option value="gestao">Gestão</option>
+        <option value="posvenda">Pós-venda</option>
+      </select>
+
+      <label for="cargo">Cargo</label>
+      <select id="cargo" name="cargo">
+        <option value="">Selecione um cargo</option>
+        <option value="assistente">Assistente</option>
+        <option value="vendedor">Vendedor</option>
+        <option value="analista">Analista</option>
+        <option value="especialista">Especialista</option>
+        <option value="coordenador">Coordenador</option>
+        <option value="gerente">Gerente</option>
+        <option value="diretor">Diretor</option>
+        <option value="titular">Titular</option>
+      </select>
+
+      <div class="checkbox">
+        <input type="checkbox" id="privacidade" name="privacidade"/>
+        <label for="privacidade">
+          Concordo com a <a href="https://lp.autoforce.com/pol%C3%ADtica-de-privacidade" target="_blank">Política de Privacidade</a>
+        </label>
+      </div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- SCRIPT JS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form');
+
+      const telefoneInput = document.getElementById('telefone');
+      telefoneInput.addEventListener('input', function (e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 2) { value = `(${value.substring(0, 2)}) ${value.substring(2)}`; }
+        if (value.length > 10) { value = `${value.substring(0, 10)}-${value.substring(10)}`; }
+        e.target.value = value;
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const nome = document.getElementById('nome').value.trim();
+        const empresa = document.getElementById('empresa').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const telefone = document.getElementById('telefone').value.replace(/\D/g, '');
+        const segmento = document.getElementById('segmento').value;
+        const area = document.getElementById('area').value;
+        const cargo = document.getElementById('cargo').value;
+        const privacidade = document.getElementById('privacidade').checked;
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let errors = [];
+
+        if (!nome) errors.push('Nome é obrigatório.');
+        if (!empresa) errors.push('Nome da empresa é obrigatório.');
+        if (!emailRegex.test(email)) errors.push('Email inválido.');
+        if (telefone.length < 10) errors.push('Telefone inválido.');
+        if (!segmento) errors.push('Selecione um segmento.');
+        if (!area) errors.push('Selecione uma área.');
+        if (!cargo) errors.push('Selecione um cargo.');
+        if (!privacidade) errors.push('Você precisa aceitar a Política de Privacidade.');
+
+        if (errors.length > 0) {
+          alert(errors.join('\n'));
+          return;
+        }
+
+        const data = { nome, empresa, email, telefone, segmento, area, cargo, data: new Date().toISOString() };
+
+        fetch('https://hook.us1.make.com/sa0wsbynnj8jev4418pknualaxxmjr72', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`Erro ao enviar formulário. Status: ${res.status}`);
+          }
+          return res.text();
+        })
+        .then((text) => {
+          console.log('Resposta do servidor:', text);
+          // Se a resposta for "Accepted", consideramos sucesso
+          if (text === "Accepted") {
+            alert('Formulário enviado com sucesso!');
+
+            // Envia eventos para os dois containers
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'formEnviadoComSucesso',
+              nome: nome,
+              email: email,
+              telefone: telefone,
+              empresa: empresa,
+              segmento: segmento,
+              area: area,
+              cargo: cargo,
+            });
+
+            window.dataLayer2 = window.dataLayer2 || [];
+            window.dataLayer2.push({
+              event: 'formEnviadoComSucesso',
+              nome: nome,
+              email: email,
+              telefone: telefone,
+              empresa: empresa,
+              segmento: segmento,
+              area: area,
+              cargo: cargo
+            });
+
+            console.log('📩 Evento enviado aos dois GTMs com sucesso!');
+            form.reset();
+          } else {
+            throw new Error('Resposta inesperada do servidor');
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          alert('Erro ao enviar. Tente novamente mais tarde.');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
