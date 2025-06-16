@@ -7,7 +7,7 @@
 
   <!-- Seus Google Tag Managers aqui... -->
 
-  <!-- ADICIONADO: Biblioteca jQuery para corrigir o erro '$ is not defined' -->
+  <!-- Biblioteca jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <style>
@@ -68,31 +68,46 @@
     </form>
   </div>
 
-  <!-- SCRIPT JS ATUALIZADO E CORRIGIDO -->
+  <!-- SCRIPT JS ATUALIZADO COM RASTREAMENTO ORGÂNICO -->
   <script>
-    // Usamos jQuery(document).ready() para garantir que TODO o HTML e todos os scripts
-    // (incluindo o jQuery e os GTMs) estejam carregados antes de executar nosso código.
-    // Isto resolve o erro "$ is not defined".
     jQuery(document).ready(function($) {
       
-      // *** FUNÇÃO DE RASTREAMENTO MELHORADA ***
-      // Lê os parâmetros diretamente da URL atual do iframe.
+      // *** FUNÇÃO DE RASTREAMENTO COM LÓGICA ORGÂNICA ***
       function preencherCamposDeRastreamento() {
         try {
           console.log('DEBUG (Dentro do Formulário): A URL que eu vejo é:', window.location.href);
           const params = new URLSearchParams(window.location.search);
-          
           const camposRastreamento = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
-          
+          let temUTM = false;
+
+          // Prioridade 1: Verifica se existem parâmetros UTM na URL
           camposRastreamento.forEach(function(nomeCampo) {
             if (params.has(nomeCampo)) {
               const campoInput = document.getElementById(nomeCampo);
               if (campoInput) {
                 campoInput.value = params.get(nomeCampo);
                 console.log(`DEBUG: Campo oculto '${nomeCampo}' preenchido com '${params.get(nomeCampo)}'`);
+                if (nomeCampo.startsWith('utm_')) {
+                  temUTM = true;
+                }
               }
             }
           });
+
+          // Prioridade 2: Se não houver UTMs, verifica a origem (referrer) para tráfego orgânico
+          if (!temUTM && document.referrer) {
+            console.log('DEBUG: Nenhum UTM encontrado. Verificando referrer:', document.referrer);
+            const utmSourceInput = document.getElementById('utm_source');
+            const utmMediumInput = document.getElementById('utm_medium');
+
+            if (document.referrer.includes('google.')) {
+              utmSourceInput.value = 'google';
+              utmMediumInput.value = 'organic';
+              console.log("DEBUG: Origem orgânica do Google detetada.");
+            }
+            // Pode adicionar mais regras aqui (ex: 'bing.com', 'facebook.com')
+          }
+
         } catch (error) {
             console.error("Erro ao preencher campos de rastreamento:", error);
         }
