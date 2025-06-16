@@ -42,6 +42,7 @@
     .checkbox { display: flex; align-items: center; margin-top: 10px; font-size: 14px; max-width: 500px; color: white; }
     #privacidade { width: 16px; height: 16px; margin-right: 5px; }
     .checkbox a { color: #4a61f5; text-decoration: underline; }
+    .hidden-field { display: none; }
   </style>
 </head>
 
@@ -105,6 +106,16 @@
         <option value="titular">Titular</option>
       </select>
 
+      <!-- CAMPOS OCULTOS PARA RASTREAMENTO -->
+      <div class="hidden-field">
+        <input type="hidden" id="utm_source" name="utm_source" />
+        <input type="hidden" id="utm_medium" name="utm_medium" />
+        <input type="hidden" id="utm_campaign" name="utm_campaign" />
+        <input type="hidden" id="utm_term" name="utm_term" />
+        <input type="hidden" id="utm_content" name="utm_content" />
+        <input type="hidden" id="gclid" name="gclid" />
+      </div>
+
       <div class="checkbox">
         <input type="checkbox" id="privacidade" name="privacidade"/>
         <label for="privacidade">
@@ -118,15 +129,79 @@
 
   <!-- SCRIPT JS -->
   <script>
+    // --- SCRIPT DE RASTREAMENTO DE ORIGEM ---
+    // Função para guardar os parâmetros da URL em cookies.
+    function setTrackingCookies() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const utmParameters = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+        let hasUtm = false;
+
+        utmParameters.forEach(param => {
+          if (params.has(param)) {
+            // Guarda o parâmetro em um cookie que dura 30 dias.
+            document.cookie = `${param}=${params.get(param)}; max-age=2592000; path=/; SameSite=Lax`;
+            hasUtm = true;
+          }
+        });
+
+        // Se não encontrou nenhum UTM, mas o link de referência é do Google, marca como orgânico.
+        if (!hasUtm && document.referrer.includes('google.com')) {
+          document.cookie = `utm_source=google; max-age=2592000; path=/; SameSite=Lax`;
+          document.cookie = `utm_medium=organic; max-age=2592000; path=/; SameSite=Lax`;
+        }
+      } catch (error) {
+        console.error("Erro ao configurar cookies de rastreamento:", error);
+      }
+    }
+
+    // Função para ler um cookie específico.
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    // Função para preencher os campos ocultos do formulário.
+    function fillTrackingFields() {
+      const fieldsToFill = {
+        'utm_source': getCookie('utm_source'),
+        'utm_medium': getCookie('utm_medium'),
+        'utm_campaign': getCookie('utm_campaign'),
+        'utm_term': getCookie('utm_term'),
+        'utm_content': getCookie('utm_content'),
+        'gclid': getCookie('gclid')
+      };
+
+      for (const fieldName in fieldsToFill) {
+        if (fieldsToFill[fieldName]) {
+          const inputElement = document.querySelector(`input[name="${fieldName}"]`);
+          if (inputElement) {
+            inputElement.value = decodeURIComponent(fieldsToFill[fieldName]);
+          }
+        }
+      }
+    }
+    // --- FIM DO SCRIPT DE RASTREAMENTO ---
+
+
     document.addEventListener('DOMContentLoaded', function () {
+      // Executa as funções de rastreamento assim que a página carrega
+      setTrackingCookies();
+      fillTrackingFields();
+
       const form = document.querySelector('form');
 
       const telefoneInput = document.getElementById('telefone');
       telefoneInput.addEventListener('input', function (e) {
         let value = e.target.value.replace(/\D/g, '');
         if (value.length > 2) { value = `(${value.substring(0, 2)}) ${value.substring(2)}`; }
-        if (value.length > 10) { value = `${value.substring(0, 10)}-${value.substring(10)}`; }
-        e.target.value = value;
+        if (value.length > 9 && value.length < 11) { // Celular sem o 9 inicial
+          value = `${value.substring(0, 9)}-${value.substring(9)}`;
+        } else if (value.length >= 11) { // Celular com 9 inicial
+          value = `${value.substring(0, 10)}-${value.substring(10)}`;
+        }
+        e.target.value = value.substring(0, 15);
       });
 
       form.addEventListener('submit', function (e) {
@@ -140,6 +215,15 @@
         const area = document.getElementById('area').value;
         const cargo = document.getElementById('cargo').value;
         const privacidade = document.getElementById('privacidade').checked;
+
+        // Captura os valores dos campos de rastreamento
+        const utm_source = document.getElementById('utm_source').value;
+        const utm_medium = document.getElementById('utm_medium').value;
+        const utm_campaign = document.getElementById('utm_campaign').value;
+        const utm_term = document.getElementById('utm_term').value;
+        const utm_content = document.getElementById('utm_content').value;
+        const gclid = document.getElementById('gclid').value;
+
 
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         let errors = [];
@@ -158,7 +242,12 @@
           return;
         }
 
-        const data = { nome, empresa, email, telefone, segmento, area, cargo, data: new Date().toISOString() };
+        // Adiciona os dados de rastreamento ao objeto 'data'
+        const data = { 
+          nome, empresa, email, telefone, segmento, area, cargo, 
+          data: new Date().toISOString(),
+          utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid
+        };
 
         fetch('https://hook.us1.make.com/sa0wsbynnj8jev4418pknualaxxmjr72', {
           method: 'POST',
@@ -173,7 +262,6 @@
         })
         .then((text) => {
           console.log('Resposta do servidor:', text);
-          // Se a resposta for "Accepted", consideramos sucesso
           if (text === "Accepted") {
             alert('Formulário enviado com sucesso!');
 
@@ -181,25 +269,17 @@
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
               event: 'formEnviadoComSucesso',
-              nome: nome,
-              email: email,
-              telefone: telefone,
-              empresa: empresa,
-              segmento: segmento,
-              area: area,
-              cargo: cargo,
+              nome: nome, email: email, telefone: telefone, empresa: empresa,
+              segmento: segmento, area: area, cargo: cargo,
+              utm_source: utm_source, utm_medium: utm_medium, utm_campaign: utm_campaign
             });
 
             window.dataLayer2 = window.dataLayer2 || [];
             window.dataLayer2.push({
               event: 'formEnviadoComSucesso',
-              nome: nome,
-              email: email,
-              telefone: telefone,
-              empresa: empresa,
-              segmento: segmento,
-              area: area,
-              cargo: cargo
+              nome: nome, email: email, telefone: telefone, empresa: empresa,
+              segmento: segmento, area: area, cargo: cargo,
+              utm_source: utm_source, utm_medium: utm_medium, utm_campaign: utm_campaign
             });
 
             console.log('📩 Evento enviado aos dois GTMs com sucesso!');
