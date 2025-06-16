@@ -7,7 +7,7 @@
 
   <!-- Seus Google Tag Managers aqui... -->
 
-  <!-- *** ADICIONADO: Biblioteca jQuery para corrigir o erro '$ is not defined' *** -->
+  <!-- ADICIONADO: Biblioteca jQuery para corrigir o erro '$ is not defined' -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <style>
@@ -68,39 +68,46 @@
     </form>
   </div>
 
-  <!-- SCRIPT JS ATUALIZADO -->
+  <!-- SCRIPT JS ATUALIZADO E CORRIGIDO -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    // Usamos jQuery(document).ready() para garantir que TODO o HTML e todos os scripts
+    // (incluindo o jQuery e os GTMs) estejam carregados antes de executar nosso código.
+    // Isto resolve o erro "$ is not defined".
+    jQuery(document).ready(function($) {
       
       // *** FUNÇÃO DE RASTREAMENTO MELHORADA ***
-      // Lê os parâmetros diretamente da URL atual do iframe, sem usar cookies.
+      // Lê os parâmetros diretamente da URL atual do iframe.
       function preencherCamposDeRastreamento() {
-        console.log('DEBUG (Dentro do Formulário): A URL que eu vejo é:', window.location.href);
-        const params = new URLSearchParams(window.location.search);
-        
-        const camposRastreamento = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
-        
-        camposRastreamento.forEach(function(nomeCampo) {
-          if (params.has(nomeCampo)) {
-            const campoInput = document.getElementById(nomeCampo);
-            if (campoInput) {
-              campoInput.value = params.get(nomeCampo);
-              console.log(`DEBUG: Campo oculto '${nomeCampo}' preenchido com '${params.get(nomeCampo)}'`);
+        try {
+          console.log('DEBUG (Dentro do Formulário): A URL que eu vejo é:', window.location.href);
+          const params = new URLSearchParams(window.location.search);
+          
+          const camposRastreamento = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+          
+          camposRastreamento.forEach(function(nomeCampo) {
+            if (params.has(nomeCampo)) {
+              const campoInput = document.getElementById(nomeCampo);
+              if (campoInput) {
+                campoInput.value = params.get(nomeCampo);
+                console.log(`DEBUG: Campo oculto '${nomeCampo}' preenchido com '${params.get(nomeCampo)}'`);
+              }
             }
-          }
-        });
+          });
+        } catch (error) {
+            console.error("Erro ao preencher campos de rastreamento:", error);
+        }
       }
 
-      // Executa a função de rastreamento assim que a página carrega
+      // Executa a função de rastreamento
       preencherCamposDeRastreamento();
 
       const form = document.querySelector('form');
 
-      // ... O resto do seu script de validação e envio continua igual ...
+      // Resto do script de validação e envio
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Captura os valores de todos os campos, incluindo os de rastreamento
+        // Captura os valores de todos os campos
         const nome = document.getElementById('nome').value.trim();
         const empresa = document.getElementById('empresa').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -117,7 +124,7 @@
         const utm_content = document.getElementById('utm_content').value;
         const gclid = document.getElementById('gclid').value;
 
-        // Validação (continua igual)
+        // Validação
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         let errors = [];
         if (!nome) errors.push('Nome é obrigatório.');
@@ -140,7 +147,7 @@
           utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid
         };
 
-        // Envio para o Make.com (continua igual)
+        // Envio para o Make.com
         fetch('https://hook.us1.make.com/sa0wsbynnj8jev4418pknualaxxmjr72', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -150,7 +157,7 @@
         .then(text => {
           if (text === "Accepted") {
             alert('Formulário enviado com sucesso!');
-            // GTM events e form.reset()
+            // GTM events e form.reset() aqui se necessário
             form.reset();
           } else {
             throw new Error('Resposta inesperada do servidor');
@@ -161,14 +168,15 @@
           alert('Erro ao enviar. Tente novamente mais tarde.');
         });
       });
-       // A sua máscara de telefone continua aqui...
+      
+       // Máscara de telefone
        const telefoneInput = document.getElementById('telefone');
        telefoneInput.addEventListener('input', function (e) {
          let value = e.target.value.replace(/\D/g, '');
          if (value.length > 2) { value = `(${value.substring(0, 2)}) ${value.substring(2)}`; }
-         if (value.length > 9 && value.length < 11) { // Celular sem o 9 inicial
+         if (value.length > 9 && value.length < 11) {
            value = `${value.substring(0, 9)}-${value.substring(9)}`;
-         } else if (value.length >= 11) { // Celular com 9 inicial
+         } else if (value.length >= 11) {
            value = `${value.substring(0, 10)}-${value.substring(10)}`;
          }
          e.target.value = value.substring(0, 15);
