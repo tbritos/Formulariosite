@@ -1,250 +1,425 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Formulário</title>
 
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
+
+  <!-- Seus Google Tag Managers aqui... -->
+
+  <!-- Google Tag Manager -->
+
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+
   })(window,document,'script','dataLayer','GTM-52W39ZKB');</script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- End Google Tag Manager -->
+
+
+
+  <!-- Biblioteca jQuery -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 
   <style>
+
     /* Seu CSS continua igual */
+
     html, body {
+
       margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; background-color: #334155;
+
     }
+
     .container { width: 100%; max-width: 890px; height: 100vh; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; padding: 20px; overflow: auto; }
+
     form { width: 100%; display: flex; flex-direction: column; flex: 1; }
+
     label { font-weight: bold; display: block; margin: 0; color: white; }
+
     input, select, button { max-width: 500px; width: 100%; padding: 20px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
+
     button { background-color: #1440ff; color: white; cursor: pointer; margin-top: 10px; border: none; }
+
     button:hover { background-color: #3a51d4; }
+
     .checkbox { display: flex; align-items: center; margin-top: 10px; font-size: 14px; max-width: 500px; color: white; }
+
     #privacidade { width: 16px; height: 16px; margin-right: 5px; }
+
     .checkbox a { color: #4a61f5; text-decoration: underline; }
+
     .hidden-field { display: none; }
-    
-    /* Estilos para as novas mensagens de sucesso e erro */
-    .mensagem {
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 5px;
-      text-align: center;
-      font-weight: bold;
-      display: none; /* Inicia oculto */
-    }
-    .mensagem-sucesso {
-      background-color: #28a745;
-      color: white;
-    }
-    .mensagem-erro {
-      background-color: #dc3545;
-      color: white;
-      text-align: left; /* Alinha o texto à esquerda para listas */
-    }
-    .mensagem-erro ul {
-        margin: 0;
-        padding-left: 20px;
-        list-style-type: disc;
-    }
+
   </style>
+
 </head>
 
+
+
 <body>
-      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52W39ZKB"
+
+  <!-- Seus noscripts do GTM aqui... -->
+
+  <!-- Google Tag Manager (noscript) -->
+
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52W39ZKB"
+
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <div class="container">
-    <div id="mensagem-sucesso" class="mensagem mensagem-sucesso">Formulário enviado com sucesso!</div>
-    <div id="mensagem-erro" class="mensagem mensagem-erro">
-        <strong>Erro! Por favor, corrija os seguintes campos:</strong>
-        <ul id="lista-erros"></ul>
-    </div>
-    
+
+  <!-- End Google Tag Manager (noscript) -->
+
+
+
+  <div class="container">
+
     <form>
-            <label for="nome">Nome</label>
+
+      <!-- Seus campos de formulário (nome, email, etc.) continuam iguais -->
+
+      <label for="nome">Nome</label>
+
       <input type="text" id="nome" name="nome" placeholder="Digite seu nome"/>
+
       <label for="empresa">Nome da Empresa</label>
+
       <input type="text" id="empresa" name="empresa" placeholder="Digite o nome da sua empresa"/>
+
       <label for="email">Email</label>
+
       <input type="email" id="email" name="email" placeholder="Digite seu email"/>
+
       <label for="telefone">Telefone</label>
+
       <input type="tel" id="telefone" name="telefone" placeholder="Ex: (99) 99999-9999"/>
+
       <label for="segmento">Segmento</label>
+
       <select id="segmento" name="segmento"><option value="">Selecione um segmento</option><option value="montadora">Montadora</option><option value="concessionaria">Concessionária</option><option value="revenda">Revenda</option><option value="seguradora">Seguradora</option><option value="blindadora">Blindadora</option><option value="financeira">Financeira</option><option value="consorcio">Consórcio</option></select>
+
       <label for="area">Área</label>
+
       <select id="area" name="area"><option value="">Selecione uma área</option><option value="marketing">Marketing</option><option value="vendas">Vendas</option><option value="crm">CRM</option><option value="gestao">Gestão</option><option value="posvenda">Pós-venda</option></select>
+
       <label for="cargo">Cargo</label>
+
       <select id="cargo" name="cargo"><option value="">Selecione um cargo</option><option value="assistente">Assistente</option><option value="vendedor">Vendedor</option><option value="analista">Analista</option><option value="especialista">Especialista</option><option value="coordenador">Coordenador</option><option value="gerente">Gerente</option><option value="diretor">Diretor</option><option value="titular">Titular</option></select>
 
-            <div class="hidden-field">
+
+
+      <!-- CAMPOS OCULTOS PARA RASTREAMENTO -->
+
+      <div class="hidden-field">
+
         <input type="hidden" id="utm_source" name="utm_source" />
+
         <input type="hidden" id="utm_medium" name="utm_medium" />
+
         <input type="hidden" id="utm_campaign" name="utm_campaign" />
+
         <input type="hidden" id="utm_term" name="utm_term" />
+
         <input type="hidden" id="utm_content" name="utm_content" />
+
         <input type="hidden" id="gclid" name="gclid" />
+
       </div>
+
+
 
       <div class="checkbox">
+
         <input type="checkbox" id="privacidade" name="privacidade"/>
+
         <label for="privacidade">Concordo com a <a href="https://site.autoforce.com/politica-de-privacidade/" target="_blank">Política de Privacidade</a></label>
+
       </div>
 
+
+
       <button type="submit">Enviar</button>
+
     </form>
+
   </div>
 
-    <script>
+
+
+  <!-- SCRIPT JS ATUALIZADO COM RASTREAMENTO ORGÂNICO -->
+
+  <script>
+
     jQuery(document).ready(function($) {
+
       
+
       // *** FUNÇÃO DE RASTREAMENTO COM LÓGICA ORGÂNICA ***
+
       function preencherCamposDeRastreamento() {
+
         try {
+
           console.log('DEBUG (Dentro do Formulário): A URL que eu vejo é:', window.location.href);
+
           const params = new URLSearchParams(window.location.search);
+
           const camposRastreamento = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
+
           let temUTM = false;
 
+
+
           // Prioridade 1: Verifica se existem parâmetros UTM na URL
+
           camposRastreamento.forEach(function(nomeCampo) {
+
             if (params.has(nomeCampo)) {
+
               const campoInput = document.getElementById(nomeCampo);
+
               if (campoInput) {
+
                 campoInput.value = params.get(nomeCampo);
+
                 console.log(`DEBUG: Campo oculto '${nomeCampo}' preenchido com '${params.get(nomeCampo)}'`);
+
                 if (nomeCampo.startsWith('utm_')) {
+
                   temUTM = true;
+
                 }
+
               }
+
             }
+
           });
 
+
+
           // Prioridade 2: Se não houver UTMs, verifica a origem (referrer) para tráfego orgânico
+
           if (!temUTM && document.referrer) {
+
             console.log('DEBUG: Nenhum UTM encontrado. Verificando referrer:', document.referrer);
+
             const utmSourceInput = document.getElementById('utm_source');
+
             const utmMediumInput = document.getElementById('utm_medium');
 
+
+
             if (document.referrer.includes('google.')) {
+
               utmSourceInput.value = 'google';
+
               utmMediumInput.value = 'organic';
+
               console.log("DEBUG: Origem orgânica do Google detetada.");
+
             }
+
             // Pode adicionar mais regras aqui (ex: 'bing.com', 'facebook.com')
+
           }
+
+
 
         } catch (error) {
+
             console.error("Erro ao preencher campos de rastreamento:", error);
+
         }
+
       }
 
+
+
       // Executa a função de rastreamento
+
       preencherCamposDeRastreamento();
 
+
+
       const form = document.querySelector('form');
-      const mensagemSucesso = document.getElementById('mensagem-sucesso');
-      const mensagemErro = document.getElementById('mensagem-erro');
-      const listaErros = document.getElementById('lista-erros');
+
+
 
       // Resto do script de validação e envio
+
       form.addEventListener('submit', function (e) {
+
         e.preventDefault();
 
-        // Oculta as mensagens anteriores
-        mensagemSucesso.style.display = 'none';
-        mensagemErro.style.display = 'none';
-        listaErros.innerHTML = '';
+
 
         // Captura os valores de todos os campos
+
         const nome = document.getElementById('nome').value.trim();
+
         const empresa = document.getElementById('empresa').value.trim();
+
         const email = document.getElementById('email').value.trim();
+
         const telefone = document.getElementById('telefone').value.replace(/\D/g, '');
+
         const segmento = document.getElementById('segmento').value;
+
         const area = document.getElementById('area').value;
+
         const cargo = document.getElementById('cargo').value;
+
         const privacidade = document.getElementById('privacidade').checked;
 
+
+
         const utm_source = document.getElementById('utm_source').value;
+
         const utm_medium = document.getElementById('utm_medium').value;
+
         const utm_campaign = document.getElementById('utm_campaign').value;
+
         const utm_term = document.getElementById('utm_term').value;
+
         const utm_content = document.getElementById('utm_content').value;
+
         const gclid = document.getElementById('gclid').value;
 
+
+
         // Validação
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
         let errors = [];
+
         if (!nome) errors.push('Nome é obrigatório.');
+
         if (!empresa) errors.push('Nome da empresa é obrigatório.');
+
         if (!emailRegex.test(email)) errors.push('Email inválido.');
+
         if (telefone.length < 10) errors.push('Telefone inválido.');
+
         if (!segmento) errors.push('Selecione um segmento.');
+
         if (!area) errors.push('Selecione uma área.');
+
         if (!cargo) errors.push('Selecione um cargo.');
+
         if (!privacidade) errors.push('Você precisa aceitar a Política de Privacidade.');
 
+
+
         if (errors.length > 0) {
-          // Substituí o alert() por uma div de erro
-          errors.forEach(err => {
-            const li = document.createElement('li');
-            li.textContent = err;
-            listaErros.appendChild(li);
-          });
-          mensagemErro.style.display = 'block';
+
+          alert(errors.join('\n'));
+
           return;
+
         }
 
+
+
         const data = { 
+
           nome, empresa, email, telefone, segmento, area, cargo, 
+
           data: new Date().toISOString(),
+
           utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid
+
         };
 
+
+
         // Envio para o Make.com
+
         fetch('https://hook.us1.make.com/sa0wsbynnj8jev4418pknualaxxmjr72', {
+
           method: 'POST',
+
           headers: { 'Content-Type': 'application/json' },
+
           body: JSON.stringify(data)
+
         })
+
         .then(res => res.ok ? res.text() : Promise.reject(`Erro: ${res.status}`))
+
         .then(text => {
+
           if (text === "Accepted") {
-            // Substituí o alert() por uma div de sucesso
-            mensagemSucesso.style.display = 'block';
-            setTimeout(() => {
-                mensagemSucesso.style.display = 'none';
-            }, 5000); // Oculta a mensagem após 5 segundos
+
+            alert('Formulário enviado com sucesso!');
+
+            // GTM events e form.reset() aqui se necessário
+
             form.reset();
+
           } else {
+
             throw new Error('Resposta inesperada do servidor');
+
           }
+
         })
+
         .catch(err => {
+
           console.error(err);
-          // Adicionei um fallback para o erro de envio
-          mensagemErro.innerHTML = '<strong>Erro!</strong> Não foi possível enviar o formulário. Tente novamente mais tarde.';
-          mensagemErro.style.display = 'block';
+
+          alert('Erro ao enviar. Tente novamente mais tarde.');
+
         });
+
       });
+
       
+
        // Máscara de telefone
+
        const telefoneInput = document.getElementById('telefone');
+
        telefoneInput.addEventListener('input', function (e) {
+
          let value = e.target.value.replace(/\D/g, '');
+
          if (value.length > 2) { value = `(${value.substring(0, 2)}) ${value.substring(2)}`; }
+
          if (value.length > 9 && value.length < 11) {
+
            value = `${value.substring(0, 9)}-${value.substring(9)}`;
+
          } else if (value.length >= 11) {
+
            value = `${value.substring(0, 10)}-${value.substring(10)}`;
+
          }
+
          e.target.value = value.substring(0, 15);
+
        });
+
     });
+
   </script>
+
 </body>
+
 </html>
