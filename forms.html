@@ -110,23 +110,53 @@
           });
 
           // Prioridade 2: Se não houver UTMs, verifica a origem (referrer) para tráfego orgânico
-          if (!temUTM && document.referrer) {
-            console.log('DEBUG: Nenhum UTM encontrado. Verificando referrer:', document.referrer);
-            const utmSourceInput = document.getElementById('utm_source');
-            const utmMediumInput = document.getElementById('utm_medium');
+    if (!temUTM && document.referrer) {
+      console.log('DEBUG: Nenhum UTM encontrado. Verificando referrer:', document.referrer);
+      const utmSourceInput = document.getElementById('utm_source');
+      const utmMediumInput = document.getElementById('utm_medium');
+      const referrer = document.referrer;
 
-            if (document.referrer.includes('google.')) {
-              utmSourceInput.value = 'google';
-              utmMediumInput.value = 'organic';
-              console.log("DEBUG: Origem orgânica do Google detetada.");
-            }
-            // Pode adicionar mais regras aqui (ex: 'bing.com', 'facebook.com')
-          }
-
+      if (referrer.includes('google.com') || referrer.includes('bing.com')) {
+        // Se vier de buscadores, marca como orgânico
+        utmSourceInput.value = utmSourceInput.value || 'search';
+        utmMediumInput.value = utmMediumInput.value || 'organic';
+        console.log("DEBUG: Origem orgânica detetada.");
+      } else if (referrer.includes('facebook.com') || referrer.includes('instagram.com')) {
+        // Se vier de redes sociais, marca como social
+        utmSourceInput.value = utmSourceInput.value || 'social_media';
+        utmMediumInput.value = utmMediumInput.value || 'social';
+        console.log("DEBUG: Origem social detetada.");
+      } else {
+        // Se a origem for de outro site, usa o domínio como source
+        try {
+          const referrerHost = new URL(referrer).hostname;
+          utmSourceInput.value = utmSourceInput.value || referrerHost;
+          utmMediumInput.value = utmMediumInput.value || 'referral';
+          console.log(`DEBUG: Origem de referência detetada de: ${referrerHost}`);
         } catch (error) {
-            console.error("Erro ao preencher campos de rastreamento:", error);
+          // Se o referrer não for uma URL válida, trata como direto
+          console.log('DEBUG: Referrer inválido. Tratando como tráfego direto.');
+          document.getElementById('utm_source').value = 'direto';
+          document.getElementById('utm_medium').value = 'none';
         }
       }
+    }
+
+    // Prioridade 3: Se não houver UTMs e nem referrer, define como "direto"
+    // Esta é a parte que garante um valor padrão
+    const utmSourceInput = document.getElementById('utm_source');
+    const utmMediumInput = document.getElementById('utm_medium');
+
+    if (!utmSourceInput.value) {
+      utmSourceInput.value = 'direto';
+      utmMediumInput.value = 'none';
+      console.log('DEBUG: Nenhum UTM ou Referrer encontrado. Campos preenchidos como "direto / none".');
+    }
+  } catch (error) {
+    console.error("Erro ao preencher campos de rastreamento:", error);
+  }
+}
+
 
       // Executa a função de rastreamento
       preencherCamposDeRastreamento();
