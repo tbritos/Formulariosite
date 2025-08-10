@@ -186,7 +186,10 @@
         .then(res => res.ok ? res.text() : Promise.reject(`Erro: ${res.status}`))
         .then(text => {
           if (text === "Accepted") {
-            alert('Formulário enviado com sucesso!');
+            document.getElementById('alert-personalizado').style.display = 'block';
+            setTimeout(() => {
+              document.getElementById('alert-personalizado').style.display = 'none';
+            }, 5000);
             // GTM events e form.reset() aqui se necessário
             form.reset();
           } else {
