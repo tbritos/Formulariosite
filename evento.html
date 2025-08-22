@@ -18,22 +18,85 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <style>
-    /* Seu CSS continua igual */
-    html, body {
-      margin: 0; padding: 0; height: 100%; font-family: Arial, sans-serif; background-color: #00020A
-;
-    }
-    .container { width: 100%; max-width: 890px; height: 100vh; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-start; padding: 20px; overflow: auto; }
-    form { width: 100%; display: flex; flex-direction: column; flex: 1; }
-    label { font-weight: bold; display: block; margin: 0; color: white; }
-    input, select, button { max-width: 500px; width: 100%; padding: 20px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px; }
-    button { background-color: #FFA814; color: white; cursor: pointer; margin-top: 10px; border: none; }
-    button:hover { background-color: #C27D09; }
-    .checkbox { display: flex; align-items: center; margin-top: 10px; font-size: 14px; max-width: 500px; color: white; }
-    #privacidade { width: 16px; height: 16px; margin-right: 5px; }
-    .checkbox a { color: #4a61f5; text-decoration: underline; }
-    .hidden-field { display: none; }
-  </style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #00020A;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 890px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente o conteúdo */
+    padding: 20px;
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adiciona espaçamento entre os campos */
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin: 0;
+    color: white;
+  }
+
+  input, select, button {
+    max-width: 500px;
+    width: 100%;
+    padding: 10px; /* Reduz o padding para diminuir a altura */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  button {
+    background-color: #FFA814;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+    border: none;
+  }
+
+  button:hover {
+    background-color: #C27D09;
+  }
+
+  .checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 14px;
+    max-width: 500px;
+    color: white;
+  }
+
+  #privacidade {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+  }
+
+  .checkbox a {
+    color: #4a61f5;
+    text-decoration: underline;
+  }
+
+  .hidden-field {
+    display: none;
+  }
+</style>
   <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/de8a822e-411d-4176-936f-51b40d89f694-loader.js" ></script>
 </head>
 
