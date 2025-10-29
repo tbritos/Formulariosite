@@ -28,32 +28,34 @@
     .checkbox a { color: #4a61f5; text-decoration: underline; }
     .hidden-field { display: none; }
     
-    /* NOVO CSS PARA RADIO BUTTONS */
-    .radio-group { 
-        display: flex; 
+    /* NOVO CSS PARA GRUPO DE RÁDIO ALINHADO AO DESIGN PADRÃO */
+    .radio-group-block {
+        display: flex;
         gap: 20px; /* Espaço entre 'Sim' e 'Não' */
-        margin-bottom: 10px;
-        max-width: 500px; /* Alinha com a largura dos outros campos */
+        margin-bottom: 15px; /* Espaço após o grupo, antes do próximo campo/checkbox */
+        max-width: 500px;
     }
     .radio-option {
         display: flex; 
         align-items: center;
     }
+    /* Estiliza o input de rádio */
     .radio-option input[type="radio"] { 
         width: 20px; 
         height: 20px; 
-        margin-right: 5px; /* Espaço entre o botão e o texto */
+        margin-right: 5px; 
         padding: 0; 
-        margin-top: 0; /* Ajuste para centralizar */
-        box-sizing: content-box; /* Garante que o tamanho seja o definido */
+        margin-top: 0; 
+        box-sizing: content-box; 
     }
+    /* Estiliza a label que acompanha o rádio (Sim/Não) */
     .radio-option label { 
-        font-weight: normal; /* Para não ficar tão gritante */
+        font-weight: normal;
         color: white; 
         display: inline-block;
         margin-left: 0;
     }
-    /* FIM NOVO CSS */
+    /* FIM CSS DO GRUPO DE RÁDIO */
   </style>
   <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/de8a822e-411d-4176-936f-51b40d89f694-loader.js" ></script>
 
@@ -84,7 +86,7 @@
       <select id="cargo" name="cargo" required><option value="">Selecione um cargo</option><option value="assistente">Assistente</option><option value="vendedor">Vendedor</option><option value="analista">Analista</option><option value="especialista">Especialista</option><option value="coordenador">Coordenador</option><option value="gerente">Gerente</option><option value="diretor">Diretor</option><option value="titular">Titular</option></select>
 
       <label>É cliente Autoforce?</label>
-      <div class="radio-group">
+      <div class="radio-group-block">
         <div class="radio-option">
             <input type="radio" id="clienteAutoforceSim" name="clienteAutoforce" value="Sim" required>
             <label for="clienteAutoforceSim">Sim</label>
@@ -171,7 +173,6 @@
     }
 
     // Prioridade 3: Se não houver UTMs e nem referrer, define como "direto"
-    // Esta é a parte que garante um valor padrão
     const utmSourceInput = document.getElementById('utm_source');
     const utmMediumInput = document.getElementById('utm_medium');
 
@@ -226,7 +227,6 @@
         if (!area) errors.push('Selecione uma área.');
         if (!cargo) errors.push('Selecione um cargo.');
         if (!privacidade) errors.push('Você precisa aceitar a Política de Privacidade.');
-        // Validação do novo campo (garantido pelo 'required' no HTML, mas bom reforçar)
         if (!clienteAutoforce) errors.push('Informe se é cliente Autoforce.'); 
 
         if (errors.length > 0) {
