@@ -103,7 +103,7 @@
     .checkbox {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
       font-size: 13px;
       color: rgba(255,255,255,0.85);
       margin-top: 10px;
@@ -111,7 +111,19 @@
 
     .checkbox a { color: #4a61f5; text-decoration: underline; }
 
-    #privacidade { accent-color: #1440FF; }
+    #privacidade { 
+      accent-color: #1440FF;
+      appearance: none
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #1440FF;
+      border-radius: 4px;
+      background-color: transparent;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease-in-out;
+    }
 
     #alert-personalizado {
       display: none;
@@ -124,6 +136,22 @@
       animation: fadeIn 0.6s ease;
       font-size: 15px;
     }
+
+    #privacidade:checked{
+      background-color: #1440FF;
+      box-shadow: 0 0 6px rgba(20,64,255,0.6);
+    }
+    
+    #privacidade:checked::after{
+      content: '✔';
+      position: absolute;
+      top: 0;
+      left: 3px;
+      color: white;
+      font-size: 14px;
+      line-height: 18px;
+    }
+        
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translate(-50%, -40%); }
