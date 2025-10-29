@@ -56,6 +56,39 @@
       font-size: 15px;
       transition: all 0.3s ease;
     }
+    /* Aparência moderna e coerente com o tema escuro */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Personaliza o menu suspenso (as opções abertas) */
+option {
+  background-color: #000; /* fundo preto */
+  color: #fff; /* texto branco */
+}
+
+/* Foco do select */
+select:focus {
+  border: 1px solid #1440FF; /* realce azul */
+  outline: none;
+  box-shadow: 0 0 10px rgba(20,64,255,0.4);
+}
+
+/* Remove seta padrão do Windows */
+select::-ms-expand {
+  display: none;
+}
+
 
     input::placeholder {
       color: rgba(255,255,255,0.5);
