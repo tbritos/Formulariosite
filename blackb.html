@@ -64,8 +64,8 @@
       cursor: pointer;
     }
 
-    input::placeholder, select::placeholder{
-      color: rgba(0, 0, 0);
+    input::placeholder, select::placeholder {
+      color: rgba(0, 0, 0, 0.6);
     }
 
     option {
@@ -74,8 +74,6 @@
     }
 
     input:focus, select:focus {
-      border: 1px solid #fff;
-      color: #000;
       border: 1px solid #1440FF;
       outline: none;
       box-shadow: 0 0 8px rgba(20,64,255,0.4);
@@ -138,13 +136,13 @@
       font-size: 15px;
     }
 
-    #privacidade:checked{
+    #privacidade:checked {
       background-color: rgba(20,64,255,0.2);
       border-color: #1440FF;
       box-shadow: 0 0 6px rgba(20,64,255,0.6);
     }
-    
-    #privacidade:checked::after{
+
+    #privacidade:checked::after {
       content: '';
       position: absolute;
       top: 1px;
@@ -155,7 +153,6 @@
       border-bottom: 1.5px solid #1440FF;
       transform: rotate(45deg);
     }
-        
 
     @keyframes fadeInUp {
       from { opacity: 0; transform: translate(-50%, -40%); }
@@ -291,15 +288,16 @@
       })
       .then(() => {
         document.getElementById('alert-personalizado').style.display = 'block';
+        
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: 'form_submit_success',
           form_name: 'Formulario AutoForce'
         });
+
         setTimeout(() => {
-          document.getElementById('alert-personalizado').style.display = 'none';
-        }, 3000);
-        document.getElementById('autoForceForm').reset();
+          window.location.href = 'https://lp.autodromo.com.br/black-friday-obrigado/';
+        }, 1500);
       })
       .catch(err => {
         console.error('Erro no envio:', err);
