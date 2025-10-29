@@ -15,6 +15,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: hidden;
     }
 
     .container {
@@ -24,54 +25,57 @@
       transform: translate(-50%, -50%);
       width: 90%;
       max-width: 600px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+      padding: 30px 40px;
+      text-align: left;
       backdrop-filter: blur(8px);
-      overflow-y: auto;
-      max-height: 90vh;
       animation: fadeInUp 0.8s ease;
+      color: #fff;
     }
 
     h1 {
       text-align: center;
       margin-bottom: 25px;
       font-size: 22px;
-      color: #fff;
       font-weight: 600;
     }
 
-    form { display: flex; flex-direction: column; gap: 12px; }
+    form { display: flex; flex-direction: column; gap: 14px; }
 
-    label { font-weight: 500; color: rgba(255,255,255,0.85); font-size: 14px; }
+    label {
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+    }
 
     input, select {
       padding: 14px;
       border-radius: 8px;
-      border: 1px solid #2A2A3A;
-      background-color: #0A0A12;
+      border: 1px solid rgba(255,255,255,0.12); /* 👈 contorno sutil */
+      background-color: transparent; /* fundo estático */
       color: #fff;
       font-size: 15px;
       transition: all 0.3s ease;
     }
 
+    input::placeholder {
+      color: rgba(255,255,255,0.5);
+    }
+
     input:focus, select:focus {
-      border-color: #1440FF;
-      box-shadow: 0 0 10px rgba(20,64,255,0.4);
+      border: 1px solid #1440FF; /* 👈 realce azul */
       outline: none;
+      background-color: rgba(20,64,255,0.05); /* leve brilho azul */
     }
 
     button {
       background: #1440FF;
       color: white;
       padding: 14px;
-      border-radius: 10px;
+      border-radius: 8px;
       border: none;
       font-size: 17px;
       font-weight: 600;
-      margin-top: 10px;
+      margin-top: 20px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
@@ -87,6 +91,7 @@
       gap: 5px;
       font-size: 13px;
       color: rgba(255,255,255,0.85);
+      margin-top: 10px;
     }
 
     .checkbox a { color: #4a61f5; text-decoration: underline; }
@@ -115,14 +120,12 @@
       to { opacity: 1; }
     }
 
-    @media (max-height: 700px) {
-      .container { max-height: 85vh; overflow-y: scroll; }
-    }
   </style>
 </head>
 
 <body>
   <div class="container">
+    <h1>Transforme sua performance digital 🚀</h1>
 
     <div id="alert-personalizado">Formulário enviado com sucesso! ✅</div>
 
