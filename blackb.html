@@ -5,17 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Formulário AutoForce</title>
 
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-52W39ZKB');
+  </script>
+  <!-- End Google Tag Manager -->
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Inter', Arial, sans-serif;
-      background: #000000;
+      background: #110F22;
       height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      color: #fff;
     }
 
     .container {
@@ -29,14 +40,6 @@
       text-align: left;
       backdrop-filter: blur(8px);
       animation: fadeInUp 0.8s ease;
-      color: #fff;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 22px;
-      font-weight: 600;
     }
 
     form { display: flex; flex-direction: column; gap: 14px; }
@@ -50,55 +53,35 @@
     input, select {
       padding: 14px;
       border-radius: 8px;
-      border: 1px solid rgba(255,255,255,0.12); /* 👈 contorno sutil */
-      background-color: transparent; /* fundo estático */
-      color: #fff;
+      border: 1px solid rgba(255,255,255,0.12);
+      background-color: #fff;
+      color: #000;
       font-size: 15px;
       transition: all 0.3s ease;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
     }
-    /* Aparência moderna e coerente com o tema escuro */
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: #fff;
-  color: #000;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 8px;
-  padding: 14px;
-  font-size: 15px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
 
-/* Personaliza o menu suspenso (as opções abertas) */
-option {
-  background-color: #fff; /* fundo preto */
-  color: #000; /* texto branco */
-}
+    input::placeholder, select::placeholder{
+      color: rgba(0, 0, 0);
+    }
 
-/* Foco do select */
-select:focus {
-  border: 1px solid #1440FF; /* realce azul */
-  outline: none;
-  box-shadow: 0 0 10px rgba(20,64,255,0.4);
-}
-
-/* Remove seta padrão do Windows */
-select::-ms-expand {
-  display: none;
-}
-
-
-    input::placeholder {
-      color: rgba(255,255,255,0.5);
+    option {
+      background-color: #fff;
+      color: #000;
     }
 
     input:focus, select:focus {
-      border: 1px solid #1440FF; /* 👈 realce azul */
+      border: 1px solid #fff;
+      color: #000;
+      border: 1px solid #1440FF;
       outline: none;
-      background-color: rgba(20,64,255,0.05); /* leve brilho azul */
+      box-shadow: 0 0 8px rgba(20,64,255,0.4);
     }
+
+    select::-ms-expand { display: none; }
 
     button {
       background: #1440FF;
@@ -121,7 +104,7 @@ select::-ms-expand {
     .checkbox {
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 8px;
       font-size: 13px;
       color: rgba(255,255,255,0.85);
       margin-top: 10px;
@@ -129,7 +112,19 @@ select::-ms-expand {
 
     .checkbox a { color: #4a61f5; text-decoration: underline; }
 
-    #privacidade { accent-color: #1440FF; }
+    #privacidade { 
+      accent-color: #1440FF;
+      appearance: none;
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 3px;
+      background-color: transparent;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s ease-in-out;
+    }
 
     #alert-personalizado {
       display: none;
@@ -143,6 +138,25 @@ select::-ms-expand {
       font-size: 15px;
     }
 
+    #privacidade:checked{
+      background-color: rgba(20,64,255,0.2);
+      border-color: #1440FF;
+      box-shadow: 0 0 6px rgba(20,64,255,0.6);
+    }
+    
+    #privacidade:checked::after{
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: 4px;
+      width: 3px;
+      height: 7px;
+      border-right: 1.5px solid #1440FF;
+      border-bottom: 1.5px solid #1440FF;
+      transform: rotate(45deg);
+    }
+        
+
     @keyframes fadeInUp {
       from { opacity: 0; transform: translate(-50%, -40%); }
       to { opacity: 1; transform: translate(-50%, -50%); }
@@ -152,15 +166,21 @@ select::-ms-expand {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
   </style>
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52W39ZKB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <div class="container">
     <div id="alert-personalizado">Formulário enviado com sucesso! ✅</div>
 
-    <form>
+    <form id="autoForceForm">
       <label for="nome">Nome</label>
       <input type="text" id="nome" name="nome" placeholder="Seu nome completo"/>
 
@@ -225,11 +245,66 @@ select::-ms-expand {
   </div>
 
   <script>
-    document.querySelector('form').addEventListener('submit', (e) => {
+    document.getElementById('autoForceForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const alertBox = document.getElementById('alert-personalizado');
-      alertBox.style.display = 'block';
-      setTimeout(() => { alertBox.style.display = 'none'; }, 3000);
+
+      const nome = document.getElementById('nome').value.trim();
+      const empresa = document.getElementById('empresa').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const telefone = document.getElementById('telefone').value.replace(/\D/g,'');
+      const segmento = document.getElementById('segmento').value;
+      const area = document.getElementById('area').value;
+      const cargo = document.getElementById('cargo').value;
+      const cliente = document.getElementById('cliente').value;
+      const privacidade = document.getElementById('privacidade').checked;
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const errors = [];
+      if (!nome) errors.push('Nome é obrigatório.');
+      if (!empresa) errors.push('Nome da empresa é obrigatório.');
+      if (!emailRegex.test(email)) errors.push('Email inválido.');
+      if (telefone.length < 10) errors.push('Telefone inválido.');
+      if (!segmento) errors.push('Selecione um segmento.');
+      if (!area) errors.push('Selecione uma área.');
+      if (!cargo) errors.push('Selecione um cargo.');
+      if (!cliente) errors.push('Informe se você é cliente AutoForce.');
+      if (!privacidade) errors.push('Você precisa aceitar a Política de Privacidade.');
+
+      if (errors.length > 0) {
+        alert(errors.join('\n'));
+        return;
+      }
+
+      const data = {
+        nome, empresa, email, telefone, segmento, area, cargo, cliente,
+        data: new Date().toISOString()
+      };
+
+      fetch('https://webhook.hablla.com/v1/69024d03f91864b213d9ad31', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('Status ' + res.status);
+        return res.text();
+      })
+      .then(() => {
+        document.getElementById('alert-personalizado').style.display = 'block';
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'form_submit_success',
+          form_name: 'Formulario AutoForce'
+        });
+        setTimeout(() => {
+          document.getElementById('alert-personalizado').style.display = 'none';
+        }, 3000);
+        document.getElementById('autoForceForm').reset();
+      })
+      .catch(err => {
+        console.error('Erro no envio:', err);
+        alert('Erro ao enviar. Tente novamente mais tarde.');
+      });
     });
   </script>
 </body>
