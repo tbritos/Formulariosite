@@ -3,82 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Formulário</title>
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-52W39ZKB');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Formulário AutoForce</title>
 
   <style>
-    html, body {
-      margin: 0; padding: 0; height: 100%;
-      font-family: Arial, sans-serif;
-      background-color: #00020A;
-    }
-    .container {
-      width: 100%; max-width: 890px; height: 100vh; min-height: 100vh;
-      margin: 0 auto; box-sizing: border-box;
-      display: flex; flex-direction: column;
-      justify-content: flex-start; padding: 20px; overflow: visible;
-    }
-    form { width: 100%; display: flex; flex-direction: column; flex: 1; }
-    label { font-weight: bold; display: block; margin: 0; color: white; }
-    input, select, button {
-      max-width: 500px; width: 100%; padding: 20px; margin: 5px 0;
-      border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 16px;
-    }
-    button {
-      background-color: #1440ff; color: white; cursor: pointer;
-      margin-top: 10px; border: none;
-    }
-    button:hover { background-color: #3a51d4; }
-    .checkbox {
-      display: flex; align-items: center; margin-top: 10px;
-      font-size: 14px; max-width: 500px; color: white;
-    }
-    #privacidade { width: 16px; height: 16px; margin-right: 5px; }
-    .checkbox a { color: #4a61f5; text-decoration: underline; }
-    .hidden-field { display: none; }
-  </style>
-  <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/de8a822e-411d-4176-936f-51b40d89f694-loader.js" ></script>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: linear-gradient(180deg, #00020A 0%, #020C20 100%);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(8px);
+      overflow-y: auto;
+      max-height: 90vh;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 22px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    form { display: flex; flex-direction: column; gap: 12px; }
+
+    label { font-weight: 500; color: rgba(255,255,255,0.85); font-size: 14px; }
+
+    input, select {
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #2A2A3A;
+      background-color: #0A0A12;
+      color: #fff;
+      font-size: 15px;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #1440FF;
+      box-shadow: 0 0 10px rgba(20,64,255,0.4);
+      outline: none;
+    }
+
+    button {
+      background: #1440FF;
+      color: white;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      font-size: 17px;
+      font-weight: 600;
+      margin-top: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2A54FF;
+      transform: translateY(-2px);
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .checkbox a { color: #4a61f5; text-decoration: underline; }
+
+    #privacidade { accent-color: #1440FF; }
+
+    #alert-personalizado {
+      display: none;
+      background-color: #28a745;
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 15px;
+      animation: fadeIn 0.6s ease;
+      font-size: 15px;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translate(-50%, -40%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-height: 700px) {
+      .container { max-height: 85vh; overflow-y: scroll; }
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-52W39ZKB"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <div id="alert-personalizado" style="display:none; background-color: #28a745; color: white; padding: 15px; border-radius: 5px; text-align: center; margin-bottom: 20px;">
-    Formulário enviado com sucesso!
-  </div>
-
   <div class="container">
+
+    <div id="alert-personalizado">Formulário enviado com sucesso! ✅</div>
+
     <form>
-      <!-- Campos principais -->
       <label for="nome">Nome</label>
-      <input type="text" id="nome" name="nome" placeholder="Digite seu nome"/>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome completo"/>
 
       <label for="empresa">Nome da Empresa</label>
       <input type="text" id="empresa" name="empresa" placeholder="Digite o nome da sua empresa"/>
 
       <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Digite seu email"/>
+      <input type="email" id="email" name="email" placeholder="exemplo@email.com"/>
 
       <label for="telefone">Telefone</label>
-      <input type="tel" id="telefone" name="telefone" placeholder="Ex: (99) 99999-9999"/>
+      <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999"/>
 
       <label for="segmento">Segmento</label>
       <select id="segmento" name="segmento">
-        <option value="">Selecione um segmento</option>
+        <option value="">Selecione</option>
         <option value="montadora">Montadora</option>
         <option value="concessionaria">Concessionária</option>
         <option value="revenda">Revenda</option>
@@ -90,7 +153,7 @@
 
       <label for="area">Área</label>
       <select id="area" name="area">
-        <option value="">Selecione uma área</option>
+        <option value="">Selecione</option>
         <option value="marketing">Marketing</option>
         <option value="vendas">Vendas</option>
         <option value="crm">CRM</option>
@@ -100,7 +163,7 @@
 
       <label for="cargo">Cargo</label>
       <select id="cargo" name="cargo">
-        <option value="">Selecione um cargo</option>
+        <option value="">Selecione</option>
         <option value="assistente">Assistente</option>
         <option value="vendedor">Vendedor</option>
         <option value="analista">Analista</option>
@@ -111,23 +174,12 @@
         <option value="titular">Titular</option>
       </select>
 
-      <!-- NOVO CAMPO: É cliente AutoForce -->
       <label for="cliente">Você é cliente AutoForce?</label>
       <select id="cliente" name="cliente">
-        <option value="">Selecione uma opção</option>
+        <option value="">Selecione</option>
         <option value="sim">Sim</option>
         <option value="nao">Não</option>
       </select>
-
-      <!-- CAMPOS OCULTOS PARA RASTREAMENTO -->
-      <div class="hidden-field">
-        <input type="hidden" id="utm_source" name="utm_source" />
-        <input type="hidden" id="utm_medium" name="utm_medium" />
-        <input type="hidden" id="utm_campaign" name="utm_campaign" />
-        <input type="hidden" id="utm_term" name="utm_term" />
-        <input type="hidden" id="utm_content" name="utm_content" />
-        <input type="hidden" id="gclid" name="gclid" />
-      </div>
 
       <div class="checkbox">
         <input type="checkbox" id="privacidade" name="privacidade"/>
@@ -139,145 +191,11 @@
   </div>
 
   <script>
-    jQuery(document).ready(function($) {
-      
-      function preencherCamposDeRastreamento() {
-        try {
-          console.log('DEBUG (Dentro do Formulário): A URL que eu vejo é:', window.location.href);
-          const params = new URLSearchParams(window.location.search);
-          const camposRastreamento = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
-          let temUTM = false;
-
-          camposRastreamento.forEach(function(nomeCampo) {
-            if (params.has(nomeCampo)) {
-              const campoInput = document.getElementById(nomeCampo);
-              if (campoInput) {
-                campoInput.value = params.get(nomeCampo);
-                console.log(`DEBUG: Campo oculto '${nomeCampo}' preenchido com '${params.get(nomeCampo)}'`);
-                if (nomeCampo.startsWith('utm_')) {
-                  temUTM = true;
-                }
-              }
-            }
-          });
-
-          if (!temUTM && document.referrer) {
-            console.log('DEBUG: Nenhum UTM encontrado. Verificando referrer:', document.referrer);
-            const utmSourceInput = document.getElementById('utm_source');
-            const utmMediumInput = document.getElementById('utm_medium');
-            const referrer = document.referrer;
-
-            if (referrer.includes('google.com') || referrer.includes('bing.com')) {
-              utmSourceInput.value = utmSourceInput.value || 'search';
-              utmMediumInput.value = utmMediumInput.value || 'organic';
-            } else if (referrer.includes('facebook.com') || referrer.includes('instagram.com')) {
-              utmSourceInput.value = utmSourceInput.value || 'social_media';
-              utmMediumInput.value = utmMediumInput.value || 'social';
-            } else {
-              try {
-                const referrerHost = new URL(referrer).hostname;
-                utmSourceInput.value = utmSourceInput.value || referrerHost;
-                utmMediumInput.value = utmMediumInput.value || 'referral';
-              } catch (error) {
-                document.getElementById('utm_source').value = 'direto';
-                document.getElementById('utm_medium').value = 'none';
-              }
-            }
-          }
-
-          const utmSourceInput = document.getElementById('utm_source');
-          const utmMediumInput = document.getElementById('utm_medium');
-
-          if (!utmSourceInput.value) {
-            utmSourceInput.value = 'direto';
-            utmMediumInput.value = 'none';
-          }
-        } catch (error) {
-          console.error("Erro ao preencher campos de rastreamento:", error);
-        }
-      }
-
-      preencherCamposDeRastreamento();
-
-      const form = document.querySelector('form');
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const nome = document.getElementById('nome').value.trim();
-        const empresa = document.getElementById('empresa').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const telefone = document.getElementById('telefone').value.replace(/\D/g, '');
-        const segmento = document.getElementById('segmento').value;
-        const area = document.getElementById('area').value;
-        const cargo = document.getElementById('cargo').value;
-        const cliente = document.getElementById('cliente').value;
-        const privacidade = document.getElementById('privacidade').checked;
-
-        const utm_source = document.getElementById('utm_source').value;
-        const utm_medium = document.getElementById('utm_medium').value;
-        const utm_campaign = document.getElementById('utm_campaign').value;
-        const utm_term = document.getElementById('utm_term').value;
-        const utm_content = document.getElementById('utm_content').value;
-        const gclid = document.getElementById('gclid').value;
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        let errors = [];
-        if (!nome) errors.push('Nome é obrigatório.');
-        if (!empresa) errors.push('Nome da empresa é obrigatório.');
-        if (!emailRegex.test(email)) errors.push('Email inválido.');
-        if (telefone.length < 10) errors.push('Telefone inválido.');
-        if (!segmento) errors.push('Selecione um segmento.');
-        if (!area) errors.push('Selecione uma área.');
-        if (!cargo) errors.push('Selecione um cargo.');
-        if (!cliente) errors.push('Informe se você é cliente AutoForce.');
-        if (!privacidade) errors.push('Você precisa aceitar a Política de Privacidade.');
-
-        if (errors.length > 0) {
-          alert(errors.join('\n'));
-          return;
-        }
-
-        const data = { 
-          nome, empresa, email, telefone, segmento, area, cargo, cliente,
-          data: new Date().toISOString(),
-          utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid
-        };
-
-        fetch('https://hook.us1.make.com/sa0wsbynnj8jev4418pknualaxxmjr72', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        })
-        .then(res => res.ok ? res.text() : Promise.reject(`Erro: ${res.status}`))
-        .then(text => {
-          if (text === "Accepted") {
-            document.getElementById('alert-personalizado').style.display = 'block';
-            setTimeout(() => {
-              document.getElementById('alert-personalizado').style.display = 'none';
-            }, 5000);
-            form.reset();
-          } else {
-            throw new Error('Resposta inesperada do servidor');
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          alert('Erro ao enviar. Tente novamente mais tarde.');
-        });
-      });
-
-      const telefoneInput = document.getElementById('telefone');
-      telefoneInput.addEventListener('input', function (e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 2) { value = `(${value.substring(0, 2)}) ${value.substring(2)}`; }
-        if (value.length > 9 && value.length < 11) {
-          value = `${value.substring(0, 9)}-${value.substring(9)}`;
-        } else if (value.length >= 11) {
-          value = `${value.substring(0, 10)}-${value.substring(10)}`;
-        }
-        e.target.value = value.substring(0, 15);
-      });
+    document.querySelector('form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const alertBox = document.getElementById('alert-personalizado');
+      alertBox.style.display = 'block';
+      setTimeout(() => { alertBox.style.display = 'none'; }, 3000);
     });
   </script>
 </body>
