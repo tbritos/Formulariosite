@@ -154,6 +154,11 @@
       transform: rotate(45deg);
     }
 
+    /* Campos UTM invisíveis */
+    .hidden-field {
+      display: none;
+    }
+
     @keyframes fadeInUp {
       from { opacity: 0; transform: translate(-50%, -40%); }
       to { opacity: 1; transform: translate(-50%, -50%); }
@@ -232,6 +237,13 @@
         <option value="nao">Não</option>
       </select>
 
+      <!-- Campos UTM ocultos -->
+      <input type="hidden" id="utm_source" name="utm_source" class="hidden-field">
+      <input type="hidden" id="utm_medium" name="utm_medium" class="hidden-field">
+      <input type="hidden" id="utm_campaign" name="utm_campaign" class="hidden-field">
+      <input type="hidden" id="utm_term" name="utm_term" class="hidden-field">
+      <input type="hidden" id="utm_content" name="utm_content" class="hidden-field">
+
       <div class="checkbox">
         <input type="checkbox" id="privacidade" name="privacidade"/>
         <label for="privacidade">Concordo com a <a href="https://site.autoforce.com/politica-de-privacidade/" target="_blank">Política de Privacidade</a></label>
@@ -242,6 +254,14 @@
   </div>
 
   <script>
+    // Captura UTMs da URL e preenche os campos ocultos
+    const params = new URLSearchParams(window.location.search);
+    const utmFields = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
+    utmFields.forEach(field => {
+      const value = params.get(field);
+      if (value) document.getElementById(field).value = value;
+    });
+
     document.getElementById('autoForceForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
@@ -254,6 +274,9 @@
       const cargo = document.getElementById('cargo').value;
       const cliente = document.getElementById('cliente').value;
       const privacidade = document.getElementById('privacidade').checked;
+
+      const utmData = {};
+      utmFields.forEach(f => utmData[f] = document.getElementById(f).value || "");
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       const errors = [];
@@ -274,6 +297,7 @@
 
       const data = {
         nome, empresa, email, telefone, segmento, area, cargo, cliente,
+        ...utmData,
         data: new Date().toISOString()
       };
 
@@ -296,8 +320,8 @@
         });
 
         setTimeout(() => {
-          window.open('https://lp.autodromo.com.br/black-friday-obrigado/', '_blank');
-       }, 1500);
+          window.location.href = 'https://lp.autodromo.com.br/black-friday-obrigado/';
+        }, 1000);
       })
       .catch(err => {
         console.error('Erro no envio:', err);
