@@ -23,7 +23,7 @@
 
         <tr>
           <td style="background-color:#00020A;padding:22px 32px;">
-            <img src="https://static.autodromo.com.br/uploads/af-logo-white.png" alt="AutoForce" width="130" style="display: block;">
+            <img src="https://static.autodromo.com.br/uploads/1dc32f4d-ab47-428d-91dd-756266d45b47_LOGOTIPO-AUTOFORCE-HORIZONTAL.svg" alt="AutoForce" width="150" style="display: block; color: #ffffff;">
           </td>
         </tr>
 
@@ -74,24 +74,9 @@
               <tr>
                 <td style="padding:24px 28px;">
                   <p style="font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:16px;color:#92400E;margin:0 0 8px;">📋 Responsabilidades da Concessionária</p>
-                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:13px;color:#92400E;margin:0 0 14px;">Mantenha atualizado no Autódromo:</p>
                   <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0 0 8px;">› Banners e Campanhas vigentes</p>
                   <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0 0 8px;">› Ofertas ativas cadastradas</p>
-                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0;">› Dados do Google Meu Negócio e Unidades</p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        <tr>
-          <td style="background:#FFFFFF;padding:0 40px 28px;">
-            <p style="font-family:'Manrope',Arial,sans-serif;font-size:15px;color:#4E5265;margin:0 0 18px;">Consulte o guia abaixo para entender as responsabilidades:</p>
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EEF2FF;border:1.5px solid #1440FF;border-radius:12px;">
-              <tr>
-                <td style="padding:20px 24px;">
-                  <p style="font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:14px;color:#00020A;margin:0 0 4px;">🔗 Guia de Responsabilidades</p>
-                  <a href="https://docs.google.com/document/d/1dcYqYcAh5Y_vb0PqiJ6xddeByiYX-ZoNF1f5WrVXeuk/edit?usp=sharing" style="font-family:'Manrope',Arial,sans-serif;font-size:13px;color:#1440FF;text-decoration:underline;">Acessar documento completo →</a>
+                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0;">› Dados do Google Meu Negócio</p>
                 </td>
               </tr>
             </table>
@@ -104,7 +89,7 @@
               <tr>
                 <td style="padding:20px 24px;">
                   <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#4E5265;margin:0 0 14px;">Dúvidas? Fale com seu CS ou acione o suporte:</p>
-                  <a href="https://api.whatsapp.com/send?phone=5511956503904" style="background:#25D366; color:#FFFFFF; padding:12px 22px; border-radius:8px; display:inline-block; font-weight:700; text-decoration:none;">💬 Suporte via WhatsApp</a>
+                  <a href="https://api.whatsapp.com/send?phone=5511956503904" style="background:#25D366; color:#FFFFFF; padding:12px 22px; border-radius:8px; display:inline-block; font-weight:700; text-decoration:none;">💬 WhatsApp (11) 95650-3904</a>
                 </td>
               </tr>
             </table>
@@ -112,15 +97,9 @@
         </tr>
 
         <tr>
-          <td style="background:#FFFFFF;padding:0 40px 36px;">
-            <p style="font-family:'Manrope',Arial,sans-serif;font-size:15px;color:#4E5265;margin:0;">Estamos juntos nessa!<br><strong>Equipe Autoforce</strong></p>
-          </td>
-        </tr>
-
-        <tr>
           <td style="background:linear-gradient(160deg,#000D3D 0%,#001A91 60%,#1440FF 100%);padding:36px 40px;text-align:center;">
             <p style="font-family:'Manrope',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.7);margin:0 0 18px;">Acesse o Autódromo e garanta sua conformidade</p>
-            <a href="https://www.autodromo.app/admin" style="background:#FFA814; color:#00020A; padding:14px 32px; border-radius:8px; display:inline-block; font-weight:700; text-transform:uppercase;">Acessar o Autódromo →</a>
+            <a href="https://www.autodromo.app/admin" style="background:#FFA814; color:#00020A; padding:14px 32px; border-radius:8px; display:inline-block; font-weight:700; text-transform:uppercase; text-decoration:none;">Acessar o Autódromo →</a>
           </td>
         </tr>
 
