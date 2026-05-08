@@ -23,7 +23,7 @@
 
         <tr>
           <td style="background-color:#00020A;padding:22px 32px;">
-            <img src="https://static.autodromo.com.br/uploads/1dc32f4d-ab47-428d-91dd-756266d45b47_LOGOTIPO-AUTOFORCE-HORIZONTAL.svg" alt="AutoForce" width="150" style="display: block; color: #ffffff;">
+            <img src="https://static.autodromo.com.br/uploads/1dc32f4d-ab47-428d-91dd-756266d45b47_LOGOTIPO-AUTOFORCE-HORIZONTAL.svg" alt="AutoForce" width="150" style="display: block;">
           </td>
         </tr>
 
@@ -61,7 +61,7 @@
                   <p style="font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:16px;color:#15803D;margin:0 0 16px;">✅ O que já está pronto pela Autoforce</p>
                   <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#166534;margin:0 0 10px;">✓ Layout e estrutura atualizados (Guide 2026)</p>
                   <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#166534;margin:0 0 10px;">✓ Conformidade visual e técnica com a auditoria</p>
-                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#166534;margin:0;">✓ Modelos de veículos alinhados ao padrão</p>
+                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#166534;margin:0;">✓ Modelos de veículos alinhados ao padrão Renault</p>
                 </td>
               </tr>
             </table>
@@ -74,9 +74,10 @@
               <tr>
                 <td style="padding:24px 28px;">
                   <p style="font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:16px;color:#92400E;margin:0 0 8px;">📋 Responsabilidades da Concessionária</p>
+                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:13px;color:#92400E;margin:0 0 14px;">Mantenha atualizado no Autódromo:</p>
                   <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0 0 8px;">› Banners e Campanhas vigentes</p>
                   <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0 0 8px;">› Ofertas ativas cadastradas</p>
-                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0;">› Dados do Google Meu Negócio</p>
+                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0;">› Dados do Google Meu Negócio e Unidades</p>
                 </td>
               </tr>
             </table>
@@ -89,7 +90,13 @@
               <tr>
                 <td style="padding:20px 24px;">
                   <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#4E5265;margin:0 0 14px;">Dúvidas? Fale com seu CS ou acione o suporte:</p>
-                  <a href="https://api.whatsapp.com/send?phone=5511956503904" style="background:#25D366; color:#FFFFFF; padding:12px 22px; border-radius:8px; display:inline-block; font-weight:700; text-decoration:none;">💬 WhatsApp (11) 95650-3904</a>
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="background:#25D366;border-radius:8px;">
+                        <a href="https://api.whatsapp.com/send?phone=5511956503904" target="_blank" style="padding:12px 22px; font-family:'Titillium Web',Arial,sans-serif; font-weight:700; font-size:14px; color:#FFFFFF; text-decoration:none; display:inline-block; border-radius:8px;">💬 Suporte WhatsApp</a>
+                      </td>
+                    </tr>
+                  </table>
                 </td>
               </tr>
             </table>
@@ -97,9 +104,17 @@
         </tr>
 
         <tr>
-          <td style="background:linear-gradient(160deg,#000D3D 0%,#001A91 60%,#1440FF 100%);padding:36px 40px;text-align:center;">
+          <td style="background:linear-gradient(160deg,#000D3D 0%,#001A91 60%,#1440FF 100%);padding:36px 40px;text-align:center;border-bottom: 1px solid rgba(255,255,255,0.1);">
             <p style="font-family:'Manrope',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.7);margin:0 0 18px;">Acesse o Autódromo e garanta sua conformidade</p>
-            <a href="https://www.autodromo.app/admin" style="background:#FFA814; color:#00020A; padding:14px 32px; border-radius:8px; display:inline-block; font-weight:700; text-transform:uppercase; text-decoration:none;">Acessar o Autódromo →</a>
+            <table cellpadding="0" cellspacing="0" border="0" align="center">
+              <tr>
+                <td style="background:#FFA814;border-radius:8px;">
+                  <a href="https://www.autodromo.app/admin" target="_blank" style="display:inline-block;padding:14px 32px;font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:14px;color:#00020A;text-decoration:none;text-transform:uppercase;">
+                    Acessar o Autódromo →
+                  </a>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
 
