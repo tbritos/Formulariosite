@@ -19,72 +19,305 @@
   <tr>
     <td align="center" style="padding:28px 16px;">
 
-      <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,2,10,0.20);background-color:#ffffff;">
+      <table width="600" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;width:100%;border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,2,10,0.20);">
 
+        <!-- HEADER -->
         <tr>
           <td style="background-color:#00020A;padding:22px 32px;">
-            <img src="https://static.autodromo.com.br/uploads/1dc32f4d-ab47-428d-91dd-756266d45b47_LOGOTIPO-AUTOFORCE-HORIZONTAL.svg" alt="AutoForce" width="150" style="display: block;">
+            <img src="https://static.autodromo.com.br/uploads/1dc32f4d-ab47-428d-91dd-756266d45b47_LOGOTIPO-AUTOFORCE-HORIZONTAL.svg"
+                 alt="AutoForce"
+                 width="160"
+                 height="20"
+                 style="display:block;width:160px;height:20px;"/>
           </td>
         </tr>
 
+        <!-- BANNER -->
         <tr>
           <td style="padding:0;margin:0;line-height:0;font-size:0;">
-            <img src="https://static.autodromo.com.br/uploads/2c4a3509-93c5-41d6-ab2d-ed4695de5fba_baixados-1.webp?width=1764&height=633"
+            <img src="https://static.autodromo.com.br/uploads/2c4a3509-93c5-41d6-ab2d-ed4695de5fba_baixados-1.webp"
                  alt="Sua operação em conformidade com o Guide Renault 2026"
                  width="600"
                  style="width:100%;display:block;"/>
           </td>
         </tr>
 
+        <!-- INTRO -->
         <tr>
-          <td style="padding:36px 40px 28px;">
+          <td style="background:#FFFFFF;padding:36px 40px 28px;">
             <p style="font-family:'Manrope',Arial,sans-serif;font-size:15px;color:#4E5265;margin:0 0 14px;line-height:1.8;">
               Olá, <strong style="color:#00020A;">Champion</strong>!
             </p>
             <p style="font-family:'Manrope',Arial,sans-serif;font-size:15px;color:#4E5265;margin:0 0 14px;line-height:1.8;">
+              Temos uma novidade importante para compartilhar com você.
+            </p>
+            <p style="font-family:'Manrope',Arial,sans-serif;font-size:15px;color:#4E5265;margin:0 0 14px;line-height:1.8;">
               A <strong style="color:#00020A;">Autoforce</strong> concluiu a atualização do <strong style="color:#00020A;">Tema Renault no Autódromo</strong>, garantindo que seu site esteja em total conformidade com o <strong style="color:#00020A;">Guide Digital 2026</strong> da montadora.
+            </p>
+            <p style="font-family:'Manrope',Arial,sans-serif;font-size:15px;color:#4E5265;margin:0;line-height:1.8;">
+              Isso significa que sua concessionária já está preparada para o ciclo de <strong style="color:#00020A;">auditorias digitais que a Renault realizará em Maio</strong>, sem que você precise fazer nada na estrutura do site.
             </p>
           </td>
         </tr>
 
+        <!-- BLOCO VERDE: O QUE JÁ ESTÁ PRONTO -->
         <tr>
-          <td style="padding:0 40px 28px;">
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F0FBF4; border:1px solid #22C55E; border-radius:12px;">
+          <td style="background:#FFFFFF;padding:0 40px 28px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
-                <td style="padding:20px;">
-                  <p style="font-family:'Titillium Web',Arial,sans-serif; font-weight:700; font-size:16px; color:#15803D; margin:0 0 10px;">✅ O que já está pronto pela Autoforce</p>
-                  <p style="font-family:'Manrope',Arial,sans-serif; font-size:14px; color:#166534; margin:0;">✓ Layout e estrutura atualizados (Guide 2026)</p>
-                  <p style="font-family:'Manrope',Arial,sans-serif; font-size:14px; color:#166534; margin:5px 0;">✓ Conformidade visual e técnica com a auditoria</p>
+                <td style="background:#F0FBF4;border:1.5px solid #22C55E;border-radius:12px;padding:24px 28px;">
+
+                  <!-- Titulo bloco -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+                    <tr>
+                      <td width="28" style="vertical-align:middle;padding-right:10px;">
+                        <span style="font-size:20px;line-height:1;">&#9989;</span>
+                      </td>
+                      <td style="vertical-align:middle;">
+                        <h3 style="font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:16px;color:#15803D;margin:0;">O que já está pronto pela Autoforce</h3>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <!-- Items -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:7px 0;border-bottom:1px solid #DCFCE7;">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="18" style="vertical-align:top;padding-right:10px;padding-top:2px;">
+                              <span style="color:#22C55E;font-size:14px;">&#10003;</span>
+                            </td>
+                            <td>
+                              <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#166534;margin:0;line-height:1.6;">Layout e estrutura do site atualizados conforme o <strong>Guide 2026</strong></p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:7px 0;border-bottom:1px solid #DCFCE7;">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="18" style="vertical-align:top;padding-right:10px;padding-top:2px;">
+                              <span style="color:#22C55E;font-size:14px;">&#10003;</span>
+                            </td>
+                            <td>
+                              <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#166534;margin:0;line-height:1.6;">Conformidade visual e técnica com os critérios de auditoria da montadora</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:7px 0;">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="18" style="vertical-align:top;padding-right:10px;padding-top:2px;">
+                              <span style="color:#22C55E;font-size:14px;">&#10003;</span>
+                            </td>
+                            <td>
+                              <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#166534;margin:0;line-height:1.6;">Modelos e informações de veículos alinhados ao padrão Renault</p>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
                 </td>
               </tr>
             </table>
           </td>
         </tr>
 
+        <!-- BLOCO AMARELO: O QUE DEPENDE DA CONCESSIONÁRIA -->
         <tr>
-          <td style="padding:0 40px 28px;">
-            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#FFFBEB; border:1px solid #FFA814; border-radius:12px;">
+          <td style="background:#FFFFFF;padding:0 40px 28px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
-                <td style="padding:20px;">
-                  <p style="font-family:'Titillium Web',Arial,sans-serif; font-weight:700; font-size:16px; color:#92400E; margin:0 0 10px;">📋 Suas Responsabilidades</p>
-                  <p style="font-family:'Manrope',Arial,sans-serif; font-size:14px; color:#78350F; margin:0;">› Mantenha Banners e Ofertas atualizados</p>
-                  <p style="font-family:'Manrope',Arial,sans-serif; font-size:14px; color:#78350F; margin:5px 0;">› Dados do Google Meu Negócio em dia</p>
+                <td style="background:#FFFBEB;border:1.5px solid #FFA814;border-radius:12px;padding:24px 28px;">
+
+                  <!-- Titulo bloco -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:6px;">
+                    <tr>
+                      <td width="28" style="vertical-align:middle;padding-right:10px;">
+                        <span style="font-size:20px;line-height:1;">&#128203;</span>
+                      </td>
+                      <td style="vertical-align:middle;">
+                        <h3 style="font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:16px;color:#92400E;margin:0;">O que depende da sua concessionária para uma aprovação completa</h3>
+                      </td>
+                    </tr>
+                  </table>
+
+                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:13px;color:#92400E;margin:0 0 14px;line-height:1.6;">Alguns itens da auditoria são de responsabilidade da própria concessionária e precisam estar atualizados no Autódromo:</p>
+
+                  <!-- Items -->
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="padding:7px 0;border-bottom:1px solid #FDE68A;">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="18" style="vertical-align:top;padding-right:10px;padding-top:2px;">
+                              <span style="color:#FFA814;font-size:14px;font-weight:700;">&#8250;</span>
+                            </td>
+                            <td><p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0;line-height:1.6;"><strong>Banners do site</strong> — imagens e campanhas vigentes</p></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:7px 0;border-bottom:1px solid #FDE68A;">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="18" style="vertical-align:top;padding-right:10px;padding-top:2px;">
+                              <span style="color:#FFA814;font-size:14px;font-weight:700;">&#8250;</span>
+                            </td>
+                            <td><p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0;line-height:1.6;"><strong>Ofertas ativas</strong> cadastradas corretamente no Autódromo</p></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:7px 0;border-bottom:1px solid #FDE68A;">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="18" style="vertical-align:top;padding-right:10px;padding-top:2px;">
+                              <span style="color:#FFA814;font-size:14px;font-weight:700;">&#8250;</span>
+                            </td>
+                            <td><p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0;line-height:1.6;"><strong>Informações do Google Meu Negócio</strong> — endereço, telefone, horários e URL do site</p></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:7px 0;border-bottom:1px solid #FDE68A;">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="18" style="vertical-align:top;padding-right:10px;padding-top:2px;">
+                              <span style="color:#FFA814;font-size:14px;font-weight:700;">&#8250;</span>
+                            </td>
+                            <td><p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0;line-height:1.6;"><strong>Dados da concessionária</strong> — endereço, telefone e horários atualizados</p></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding:7px 0;">
+                        <table cellpadding="0" cellspacing="0" border="0">
+                          <tr>
+                            <td width="18" style="vertical-align:top;padding-right:10px;padding-top:2px;">
+                              <span style="color:#FFA814;font-size:14px;font-weight:700;">&#8250;</span>
+                            </td>
+                            <td><p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#78350F;margin:0;line-height:1.6;"><strong>Logo e redes sociais</strong></p></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+
                 </td>
               </tr>
             </table>
           </td>
         </tr>
 
+        <!-- GUIA DE RESPONSABILIDADES -->
         <tr>
-          <td align="center" style="padding:0 40px 40px;">
-             <p style="font-family:'Manrope',Arial,sans-serif; font-size:14px; color:#4E5265; margin-bottom:20px;">Dúvidas? Acione o suporte:</p>
-             <a href="https://api.whatsapp.com/send?phone=5511956503904" style="background-color:#25D366; color:#ffffff; padding:12px 25px; border-radius:8px; text-decoration:none; font-weight:bold; display:inline-block;">Falar no WhatsApp</a>
+          <td style="background:#FFFFFF;padding:0 40px 28px;">
+            <p style="font-family:'Manrope',Arial,sans-serif;font-size:15px;color:#4E5265;margin:0 0 18px;line-height:1.8;">
+              Precisa de ajuda com qualquer um desses itens? Consulte o documento abaixo — ele explica de forma clara o que é responsabilidade de cada parte e como acionar o suporte quando necessário:
+            </p>
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background:#EEF2FF;border:1.5px solid #1440FF;border-radius:12px;padding:20px 24px;">
+                  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td width="32" style="vertical-align:middle;padding-right:14px;">
+                        <span style="font-size:22px;">&#128279;</span>
+                      </td>
+                      <td style="vertical-align:middle;">
+                        <p style="font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:14px;color:#00020A;margin:0 0 4px;">Guia de Responsabilidades Autoforce &amp; Rede Renault</p>
+                        <a href="https://docs.google.com/document/d/1dcYqYcAh5Y_vb0PqiJ6xddeByiYX-ZoNF1f5WrVXeuk/edit?usp=sharing"
+                           style="font-family:'Manrope',Arial,sans-serif;font-size:13px;color:#1440FF;text-decoration:underline;word-break:break-all;">
+                          Acessar documento &#8594;
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
           </td>
         </tr>
 
+        <!-- SUPORTE -->
         <tr>
-          <td style="background-color:#00020A; padding:20px; text-align:center;">
-            <p style="font-family:'Manrope',Arial,sans-serif; font-size:12px; color:#FFFFFF; margin:0;">© 2026 Autoforce</p>
+          <td style="background:#FFFFFF;padding:0 40px 32px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background:#F8F9FC;border:1px solid #C7CDE9;border-radius:12px;padding:20px 24px;">
+                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:14px;color:#4E5265;margin:0 0 14px;line-height:1.7;">
+                    Qualquer dúvida, fale diretamente com seu CS pelo grupo de WhatsApp ou acione o suporte:
+                  </p>
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td style="background:#25D366;border-radius:8px;">
+                        <a href="https://api.whatsapp.com/send?phone=5511956503904&amp;text=Oi%2C%20preciso%20de%20ajuda%20com%20a%20auditoria%20Renault%202026"
+                           style="display:inline-block;padding:12px 22px;font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:14px;color:#FFFFFF;text-decoration:none;letter-spacing:0.3px;">
+                          &#128172; Falar com o Suporte — (11) 95650-3904
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ASSINATURA -->
+        <tr>
+          <td style="background:#FFFFFF;padding:0 40px 36px;border-top:1px solid #EEF2FF;">
+            <p style="font-family:'Manrope',Arial,sans-serif;font-size:15px;color:#4E5265;margin:0 0 4px;line-height:1.8;">
+              Estamos juntos nessa!
+            </p>
+            <p style="font-family:'Manrope',Arial,sans-serif;font-size:13px;color:#8A92B7;margin:0 0 12px;line-height:1.6;">&#9889;</p>
+            <p style="font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:15px;color:#00020A;margin:0;">Equipe Autoforce</p>
+          </td>
+        </tr>
+
+        <!-- FOOTER CTA -->
+        <tr>
+          <td style="background:linear-gradient(160deg,#000D3D 0%,#001A91 60%,#1440FF 100%);padding:36px 40px;">
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td align="center">
+                  <p style="font-family:'Manrope',Arial,sans-serif;font-size:13px;color:rgba(255,255,255,0.55);margin:0 0 18px;line-height:1.6;">Acesse agora o Autódromo e garanta sua conformidade</p>
+                  <table cellpadding="0" cellspacing="0" border="0" align="center">
+                    <tr>
+                      <td style="background:#FFA814;border-radius:8px;">
+                        <a href="https://www.autodromo.app/admin"
+                           style="display:inline-block;padding:14px 32px;font-family:'Titillium Web',Arial,sans-serif;font-weight:700;font-size:14px;color:#00020A;text-decoration:none;letter-spacing:0.5px;text-transform:uppercase;">
+                          Acessar o Autódromo &#8594;
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- BOTTOM FOOTER -->
+        <tr>
+          <td style="background:#00020A;padding:22px 32px;text-align:center;">
+            <img src="https://static.autodromo.com.br/uploads/1dc32f4d-ab47-428d-91dd-756266d45b47_LOGOTIPO-AUTOFORCE-HORIZONTAL.svg"
+                 alt="AutoForce"
+                 width="120"
+                 height="15"
+                 style="display:inline-block;width:120px;height:15px;"/>
           </td>
         </tr>
 
