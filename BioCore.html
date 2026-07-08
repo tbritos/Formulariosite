@@ -1,9 +1,5 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale
 <title>BioCore — Dossiê do Projeto</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
   :root{
     --bg:#080D10; --s1:#0F1719; --s2:#141F26; --s3:#1C2B35;
@@ -14,7 +10,7 @@
     --red:#FF5F6B; --red-a:rgba(255,95,107,.12);
     --t1:#EAF2EF; --t2:#9FB3AC; --t3:#5C726B;
     --bdr:rgba(0,212,160,.16);
-    --mono: ui-monospace,'JetBrains Mono','SFMono-Regular',Menlo
+    --mono: ui-monospace,'JetBrains Mono','SFMono-Regular',Menlo,Consolas,monospace;
     --body: -apple-system,'Segoe UI',system-ui,Inter,sans-serif;
   }
   *{box-sizing:border-box;}
@@ -40,7 +36,7 @@
   }
   .hero h1{
     font-family:var(--mono); font-weight:700; letter-spacing:-1px;
-    font-size:clamp(38px,7vw,58px); color:var(--t1); margin:0 0
+    font-size:clamp(38px,7vw,58px); color:var(--t1); margin:0 0 12px;
     text-wrap:balance;
   }
   .hero h1 span{ color:var(--bio); }
@@ -52,7 +48,7 @@
   /* ---------- SECTION SCAFFOLD ---------- */
   section{ margin-top:56px; }
   .sec-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:20px; }
-  .sec-num{ font-family:var(--mono); font-size:12px; color:var(-
+  .sec-num{ font-family:var(--mono); font-size:12px; color:var(--bio); letter-spacing:1px; }
   .sec-title{ font-family:var(--mono); font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--t1); font-weight:700; }
   .sec-rule{ flex:1; height:1px; background:var(--bdr); }
   .lede{ color:var(--t2); font-size:15px; max-width:680px; margin:0 0 24px; }
@@ -60,38 +56,307 @@
   /* ---------- STAT STRIP ---------- */
   .stats{
     display:grid; grid-template-columns:repeat(5,1fr); gap:1px;
-    background:var(--bdr); border:1px solid var(--bdr); border-r
+    background:var(--bdr); border:1px solid var(--bdr); border-radius:12px; overflow:hidden;
   }
-  .stat{ background:var(--s1); padding:20px 14px; text-align:cen
+  .stat{ background:var(--s1); padding:20px 14px; text-align:center; }
   .stat b{
-    display:block; font-family:var(--mono); font-variant-numeric
+    display:block; font-family:var(--mono); font-variant-numeric:tabular-nums;
     font-size:26px; color:var(--bio); font-weight:700; margin-bottom:6px;
   }
   .stat span{ font-size:10.5px; letter-spacing:.5px; color:var(--t3); text-transform:uppercase; font-family:var(--mono); }
-  @media (max-width:640px){ .stats{ grid-template-columns:repeat.stat:nth-child(5){ border-top:1px solid var(--bdr);} }
+  @media (max-width:640px){ .stats{ grid-template-columns:repeat(3,1fr);} .stat:nth-child(4),.stat:nth-child(5){ border-top:1px solid var(--bdr);} }
 
   /* ---------- CARD GRID (STACK / ADMIN) ---------- */
   .grid{ display:grid; gap:14px; }
   .grid.cols-3{ grid-template-columns:repeat(3,1fr); }
   .grid.cols-2{ grid-template-columns:repeat(2,1fr); }
-  @media (max-width:720px){ .grid.cols-3, .grid.cols-2{ grid-tem
+  @media (max-width:720px){ .grid.cols-3, .grid.cols-2{ grid-template-columns:1fr; } }
 
   .card{
     background:var(--s1); border:1px solid var(--bdr); border-radius:12px; padding:18px 20px;
   }
   .card h3{
-    font-family:var(--mono); font-size:13px; color:var(--t1); ma;
+    font-family:var(--mono); font-size:13px; color:var(--t1); margin:0 0 6px; font-weight:700;
     display:flex; align-items:center; gap:8px;
   }
   .card p{ font-size:13px; color:var(--t3); margin:0; line-height:1.55; }
   .chip{
     display:inline-flex; align-items:center; padding:2px 9px; border-radius:100px;
-    font-family:var(--mono); font-size:9.5px; font-weight:700; l
+    font-family:var(--mono); font-size:9.5px; font-weight:700; letter-spacing:.3px;
   }
 
   /* ---------- GAMES GRID ---------- */
-  .games{ display:grid; grid-template-columns:repeat(3,1fr); gap
+  .games{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
   @media (max-width:760px){ .games{ grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:480px){ .games{ grid-template-columns:1fr;}
+  @media (max-width:480px){ .games{ grid-template-columns:1fr;} }
   .game{
-    background:var(--s1); border:1px solid var(--bdr); border-ra
+    background:var(--s1); border:1px solid var(--bdr); border-radius:12px; padding:18px;
+    display:flex; flex-direction:column; gap:10px;
+  }
+  .game .icon{ font-size:26px; line-height:1; }
+  .game h4{ font-family:var(--mono); font-size:13.5px; color:var(--t1); margin:0; font-weight:700; }
+  .game p{ font-size:12px; color:var(--t3); margin:0; flex:1; line-height:1.5; }
+  .game .tags{ display:flex; gap:6px; flex-wrap:wrap; }
+
+  /* ---------- TABLE ---------- */
+  table{ width:100%; border-collapse:collapse; font-size:13px; }
+  .tblwrap{ overflow-x:auto; border:1px solid var(--bdr); border-radius:12px; }
+  th{
+    text-align:left; padding:11px 16px; font-family:var(--mono); font-size:9.5px; letter-spacing:1.5px;
+    text-transform:uppercase; color:var(--t3); background:var(--s2); white-space:nowrap; font-weight:600;
+  }
+  td{ padding:12px 16px; border-top:1px solid var(--bdr); color:var(--t2); background:var(--s1); }
+  td.mono{ font-family:var(--mono); font-variant-numeric:tabular-nums; color:var(--t1); }
+  td.role{ font-weight:700; }
+
+  /* ---------- LEVEL TRACK ---------- */
+  .track{ display:flex; border-radius:12px; overflow:hidden; border:1px solid var(--bdr); }
+  .tier{ flex:1; padding:16px 10px; text-align:center; background:var(--s1); border-left:1px solid var(--bdr); }
+  .tier:first-child{ border-left:none; }
+  .tier .lv{ font-family:var(--mono); font-size:10px; color:var(--t3); letter-spacing:.5px; }
+  .tier .name{ font-family:var(--mono); font-size:12.5px; font-weight:700; margin-top:4px; }
+  @media (max-width:700px){ .track{ flex-wrap:wrap;} .tier{ flex:1 1 33%; border-top:1px solid var(--bdr);} }
+
+  /* ---------- NAV DIAGRAM ---------- */
+  .nav-split{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  @media (max-width:700px){ .nav-split{ grid-template-columns:1fr; } }
+  .nav-box{ background:var(--s1); border:1px solid var(--bdr); border-radius:12px; padding:18px 20px; }
+  .nav-box h4{ font-family:var(--mono); font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--sky); margin:0 0 12px; }
+  .nav-box ol{ margin:0; padding-left:18px; font-size:13px; color:var(--t2); }
+  .nav-box ol li{ margin-bottom:6px; }
+
+  /* ---------- CHEATSHEET ---------- */
+  .cheat{
+    background:var(--s2); border:1px solid var(--bdr); border-radius:12px; padding:24px 26px;
+  }
+  .cheat h3{ font-family:var(--mono); font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:0 0 14px; }
+  .cheat ul{ margin:0; padding-left:20px; }
+  .cheat li{ font-size:14px; color:var(--t2); margin-bottom:10px; }
+  .cheat li b{ color:var(--t1); }
+
+  footer{
+    margin-top:70px; padding-top:24px; border-top:1px solid var(--bdr);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+    font-family:var(--mono); font-size:10.5px; color:var(--t3); letter-spacing:.5px;
+  }
+
+  @media (prefers-reduced-motion: reduce){ #ekg path{ animation:none !important; } }
+</style>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Projeto Integrador · Engenharia Biomédica</div>
+    <h1><span>Bio</span>Core</h1>
+    <p class="tagline">Uma PWA que transforma o conteúdo do curso em jogos — quizzes, flashcards, cruzadas e mais — com XP, níveis e ranking entre turmas.</p>
+    <canvas id="ekg" width="900" height="64"></canvas>
+  </div>
+
+  <!-- 01 OVERVIEW -->
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">O que é</span><span class="sec-rule"></span></div>
+    <p class="lede">
+      BioCore é uma plataforma web (instalável como app — PWA) onde alunos de Engenharia Biomédica estudam jogando.
+      Cada disciplina do curso vira conteúdo dentro de 9 jogos diferentes; cada partida rende XP, sobe de nível e
+      alimenta um ranking. Professores publicam missões e acompanham a turma; admins gerenciam usuários, conteúdo e papéis.
+    </p>
+    <div class="stats">
+      <div class="stat"><b>9</b><span>Jogos</span></div>
+      <div class="stat"><b>10</b><span>Disciplinas</span></div>
+      <div class="stat"><b>30</b><span>Níveis</span></div>
+      <div class="stat"><b>38</b><span>Conquistas</span></div>
+      <div class="stat"><b>3</b><span>Perfis</span></div>
+    </div>
+  </section>
+
+  <!-- 02 STACK -->
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Stack &amp; Infraestrutura</span><span class="sec-rule"></span></div>
+    <p class="lede">Aplicação full-stack em TypeScript, com renderização no servidor e banco de dados gerenciado — sem backend próprio para manter.</p>
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>🖥️ Frontend</h3>
+        <p><b style="color:var(--t1)">Next.js 16</b> (App Router) + <b style="color:var(--t1)">React 19</b> + TypeScript. Estilos com Tailwind CSS v4. Server Actions no lugar de uma API REST separada.</p>
+      </div>
+      <div class="card">
+        <h3>🗄️ Backend &amp; Dados</h3>
+        <p><b style="color:var(--t1)">Supabase</b> — Postgres + Auth (login/cadastro) + <b style="color:var(--t1)">Row Level Security</b> (regras de acesso direto no banco, por linha e por papel do usuário).</p>
+      </div>
+      <div class="card">
+        <h3>☁️ Deploy &amp; PWA</h3>
+        <p>Hospedado na <b style="color:var(--t1)">Vercel</b>. Manifesto de app (<code style="font-family:var(--mono)">manifest.ts</code>) permite instalar o BioCore na tela inicial do celular.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 ARCHITECTURE / ROLES -->
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Perfis &amp; Segurança</span><span class="sec-rule"></span></div>
+    <p class="lede">Três papéis de usuário. O controle de acesso não vive só na tela — está reforçado no próprio banco de dados via RLS, então mesmo que alguém burle a interface, o Postgres recusa a operação.</p>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Papel</th><th>O que pode fazer</th><th>Onde isso é garantido</th></tr></thead>
+        <tbody>
+          <tr><td class="role" style="color:var(--bio)">Aluno</td><td>Joga, acumula XP, entra em missões, aparece no ranking</td><td class="mono">RLS: só edita o próprio perfil</td></tr>
+          <tr><td class="role" style="color:var(--sky)">Professor</td><td>Cria disciplinas e missões, acompanha desempenho da turma</td><td class="mono">RLS: policy de insert por papel</td></tr>
+          <tr><td class="role" style="color:var(--gold)">Admin</td><td>Gerencia usuários, papéis, disciplinas, conquistas, missões e conteúdo dos jogos</td><td class="mono">Server Action com checagem de admin + RLS</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 04 GAMES -->
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Os 9 jogos</span><span class="sec-rule"></span></div>
+    <p class="lede">Cada jogo cobre um jeito diferente de estudar — memorização, velocidade, associação, procedimento — todos ligados às 10 disciplinas do curso.</p>
+    <div class="games">
+      <div class="game"><span class="icon">🧠</span><h4>Quiz</h4><p>Múltipla escolha, V/F e lacunas, com timer ajustável.</p><div class="tags"><span class="chip" style="background:var(--bio-a);color:var(--bio)">+10–30 XP</span></div></div>
+      <div class="game"><span class="icon">🃏</span><h4>Flashcards</h4><p>Repetição espaçada (SRS), no estilo Anki.</p><div class="tags"><span class="chip" style="background:var(--bio-a);color:var(--bio)">+5 XP/card</span></div></div>
+      <div class="game"><span class="icon">🔤</span><h4>Palavras Cruzadas</h4><p>Crucigrama gerado dinamicamente com termos técnicos.</p><div class="tags"><span class="chip" style="background:var(--bio-a);color:var(--bio)">+50–80 XP</span></div></div>
+      <div class="game"><span class="icon">🔍</span><h4>Caça-Palavras</h4><p>Encontrar termos escondidos no grid, arrastando a seleção.</p><div class="tags"><span class="chip" style="background:var(--bio-a);color:var(--bio)">+30–60 XP</span></div></div>
+      <div class="game"><span class="icon">🔗</span><h4>Lab Sequência</h4><p>Ordenar as etapas corretas de um procedimento de laboratório.</p><div class="tags"><span class="chip" style="background:var(--bio-a);color:var(--bio)">+40 XP</span></div></div>
+      <div class="game"><span class="icon">🫀</span><h4>Clique Certeiro</h4><p>Clicar no ponto certo em imagens de anatomia.</p><div class="tags"><span class="chip" style="background:var(--bio-a);color:var(--bio)">+20–50 XP</span></div></div>
+      <div class="game"><span class="icon">🧬</span><h4>Par Perfeito</h4><p>Jogo da memória: relacionar termo com definição.</p><div class="tags"><span class="chip" style="background:var(--bio-a);color:var(--bio)">+35 XP</span></div></div>
+      <div class="game"><span class="icon">⚡</span><h4>Reflexo Clínico</h4><p>Modo velocidade: 3 segundos por questão, score multiplicado.</p><div class="tags"><span class="chip" style="background:var(--red-a);color:var(--red)">+10×mult.</span></div></div>
+      <div class="game"><span class="icon">🔬</span><h4>BioTermo</h4><p>Tipo Termo/Wordle: adivinhar a palavra biomédica do dia em 6 tentativas, com ranking diário.</p><div class="tags"><span class="chip" style="background:var(--gold-a);color:var(--gold)">+20–80 XP</span></div></div>
+    </div>
+  </section>
+
+  <!-- 05 PROGRESSION -->
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Progressão &amp; Engajamento</span><span class="sec-rule"></span></div>
+    <p class="lede">30 níveis divididos em 6 títulos acadêmicos — a curva de XP fica mais dura conforme sobe (400 XP para o nível 2, quase 6.100 XP para o último degrau).</p>
+    <div class="track">
+      <div class="tier"><div class="lv">NÍVEL 1–5</div><div class="name" style="color:var(--bio)">Calouro</div></div>
+      <div class="tier"><div class="lv">NÍVEL 6–10</div><div class="name" style="color:var(--sky)">Residente</div></div>
+      <div class="tier"><div class="lv">NÍVEL 11–15</div><div class="name" style="color:var(--violet)">Especialista</div></div>
+      <div class="tier"><div class="lv">NÍVEL 16–20</div><div class="name" style="color:var(--gold)">Pesquisador</div></div>
+      <div class="tier"><div class="lv">NÍVEL 21–25</div><div class="name" style="color:var(--red)">Doutor Jr.</div></div>
+      <div class="tier"><div class="lv">NÍVEL 26–30</div><div class="name" style="color:var(--t1)">Dr. BioCore</div></div>
+    </div>
+    <div class="grid cols-3" style="margin-top:14px;">
+      <div class="card"><h3>🔥 Streak &amp; Missões</h3><p>Sequência diária de estudo, missões diárias/semanais que dão XP bônus ao completar.</p></div>
+      <div class="card"><h3>🏆 Conquistas</h3><p>38 conquistas cadastradas, em raridades comum/rara/épica/lendária.</p></div>
+      <div class="card"><h3>📊 Ranking</h3><p>Ranking semanal e mensal geral, além de um ranking diário exclusivo do BioTermo.</p></div>
+    </div>
+  </section>
+
+  <!-- 06 ADMIN -->
+  <section>
+    <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">Painel Administrativo</span><span class="sec-rule"></span></div>
+    <p class="lede">Tudo que aparece nos jogos é cadastrado por professores/admins nessas 5 telas — nada é hardcoded no app.</p>
+    <div class="grid cols-3">
+      <div class="card"><h3>👤 Usuários</h3><p>Lista todos os cadastrados e permite alterar o papel (aluno / professor / admin).</p></div>
+      <div class="card"><h3>📚 Disciplinas</h3><p>Cadastro das matérias do curso — nome, ícone e cor de identificação.</p></div>
+      <div class="card"><h3>🏅 Conquistas</h3><p>Criação de badges com condição, raridade e recompensa em XP.</p></div>
+      <div class="card"><h3>🎯 Missões</h3><p>Missões diárias, semanais ou especiais, ligadas a um jogo e disciplina.</p></div>
+      <div class="card"><h3>🧩 Conteúdo dos Jogos</h3><p>Perguntas, flashcards, pares de memória, sequências de laboratório e banco de palavras.</p></div>
+    </div>
+  </section>
+
+  <!-- 07 NAV -->
+  <section>
+    <div class="sec-head"><span class="sec-num">07</span><span class="sec-title">Telas &amp; Navegação</span><span class="sec-rule"></span></div>
+    <div class="nav-split">
+      <div class="nav-box">
+        <h4>Fluxo do aluno</h4>
+        <ol>
+          <li>Login / Cadastro</li>
+          <li>Dashboard — XP, missões ativas, atalhos de jogo</li>
+          <li>Jogos → escolhe um dos 9</li>
+          <li>Ranking (semanal / mensal)</li>
+          <li>Perfil — nível, conquistas, histórico</li>
+        </ol>
+      </div>
+      <div class="nav-box">
+        <h4>Navegação</h4>
+        <ol>
+          <li><b style="color:var(--t1)">Mobile:</b> barra inferior — Home, Jogos, Rank, Missões, Perfil</li>
+          <li><b style="color:var(--t1)">Desktop:</b> sidebar fixa lateral</li>
+          <li>Dark mode nativo (referência: monitor de ECG), com light mode alternável</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 DB SNAPSHOT -->
+  <section>
+    <div class="sec-head"><span class="sec-num">08</span><span class="sec-title">Estado atual do banco</span><span class="sec-rule"></span></div>
+    <p class="lede">Snapshot de dados de desenvolvimento/teste no Supabase — mostra que o cadastro de conteúdo já está em uso, não é só protótipo de tela.</p>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>Tabela</th><th>Linhas</th><th>Tabela</th><th>Linhas</th></tr></thead>
+        <tbody>
+          <tr><td>disciplines</td><td class="mono">11</td><td>missions</td><td class="mono">34</td></tr>
+          <tr><td>achievements</td><td class="mono">38</td><td>game_questions</td><td class="mono">15</td></tr>
+          <tr><td>flashcard_cards</td><td class="mono">18</td><td>lab_sequence_steps</td><td class="mono">21</td></tr>
+          <tr><td>memory_pairs</td><td class="mono">8</td><td>word_bank</td><td class="mono">8</td></tr>
+          <tr><td>profiles (usuários)</td><td class="mono">4</td><td>game_sessions jogadas</td><td class="mono">8</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 09 CHEATSHEET -->
+  <section>
+    <div class="cheat">
+      <h3>Roteiro rápido pra quem for apresentar</h3>
+      <ul>
+        <li><b>Abre com o problema:</b> conteúdo do curso é denso — a gamificação dá repetição espaçada sem parecer estudo forçado.</li>
+        <li><b>Mostra um jogo ao vivo</b> (Quiz ou BioTermo são os mais rápidos de demonstrar) e o XP subindo.</li>
+        <li><b>Explica a arquitetura em uma frase:</b> "Next.js no front, Supabase cuida de login/banco/permissões, hospedado na Vercel — sem servidor próprio pra manter."</li>
+        <li><b>Destaca a segurança:</b> as regras de quem pode editar o quê estão no próprio banco (RLS), não só escondidas na tela.</li>
+        <li><b>Fecha com o painel admin:</b> tudo é cadastrável — o time pode adicionar disciplinas, perguntas e conquistas sem mexer em código.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>
+    <span>BIOCORE · PROJETO INTEGRADOR</span>
+    <span>NEXT.JS · SUPABASE · VERCEL</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var c = document.getElementById('ekg');
+  var ctx = c.getContext('2d');
+  var dpr = window.devicePixelRatio || 1;
+  var w = c.clientWidth, h = c.clientHeight;
+  c.width = w*dpr; c.height = h*dpr; ctx.scale(dpr,dpr);
+
+  function pathFor(offset, width){
+    var pts = [];
+    var mid = h/2;
+    var n = 220;
+    for(var i=0;i<n;i++){
+      var x = (i/n)*width;
+      var t = ((i+offset) % 40);
+      var y = mid;
+      if(t>=18 && t<20) y = mid + 14;
+      else if(t>=20 && t<21) y = mid - 30;
+      else if(t>=21 && t<22) y = mid + 20;
+      else if(t>=22 && t<25) y = mid - 6;
+      pts.push([x,y]);
+    }
+    return pts;
+  }
+
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var offset = 0;
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    var pts = pathFor(offset, w+40);
+    ctx.beginPath();
+    ctx.moveTo(pts[0][0], pts[0][1]);
+    for(var i=1;i<pts.length;i++) ctx.lineTo(pts[i][0], pts[i][1]);
+    ctx.strokeStyle = '#00D4A0';
+    ctx.lineWidth = 1.6;
+    ctx.shadowColor = 'rgba(0,212,160,.6)';
+    ctx.shadowBlur = 6;
+    ctx.stroke();
+    if(!reduce){ offset += 0.35; requestAnimationFrame(draw); }
+  }
+  draw();
+})();
+</script>
