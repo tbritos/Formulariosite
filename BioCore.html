@@ -148,17 +148,35 @@
   <div class="hero">
     <div class="eyebrow">Projeto Integrador · Engenharia Biomédica</div>
     <h1><span>Bio</span>Core</h1>
-    <p class="tagline">Uma PWA que transforma o conteúdo do curso em jogos — quizzes, flashcards, cruzadas e mais — com XP, níveis e ranking entre turmas.</p>
+    <p class="tagline">Uma PWA de aprendizagem adaptativa que transforma conteúdos da Engenharia Biomédica — quizzes, flashcards, cruzadas e mais — com XP, níveis e ranking entre turmas.</p>
     <canvas id="ekg" width="900" height="64"></canvas>
   </div>
 
-  <!-- 01 OVERVIEW -->
+  <!-- 01 WHY -->
   <section>
-    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">O que é</span><span class="sec-rule"></span></div>
-    <p class="lede">
-      BioCore é uma plataforma web (instalável como app — PWA) onde alunos de Engenharia Biomédica estudam jogando.
-      Cada disciplina do curso vira conteúdo dentro de 9 jogos diferentes; cada partida rende XP, sobe de nível e
-      alimenta um ranking. Professores publicam missões e acompanham a turma; admins gerenciam usuários, conteúdo e papéis.
+    <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">Por que o BioCore?</span><span class="sec-rule"></span></div>
+    <p class="lede" style="max-width:760px;">
+      E se estudar Engenharia Biomédica pudesse ser mais intuitivo, motivador e inclusivo? A Engenharia Biomédica é
+      um curso marcado por conteúdos complexos e uma rotina intensa de estudos. Enquanto alguns estudantes se
+      adaptam aos métodos tradicionais de ensino, outros enfrentam desafios relacionados à atenção, organização e
+      diferentes formas de aprendizagem, especialmente discentes neurodivergentes. Foi para transformar essa
+      realidade que surgiu o BioCore: uma nova forma de aprender, desenvolvida para transformar conteúdos complexos
+      em experiências de estudo mais interativas e adaptadas aos diferentes perfis de estudantes.
+    </p>
+  </section>
+
+  <!-- 02 OVERVIEW -->
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">O que é</span><span class="sec-rule"></span></div>
+    <p class="lede" style="max-width:760px;">
+      O BioCore é uma Progressive Web Application (PWA) desenvolvida para apoiar o processo de aprendizagem de
+      estudantes da Engenharia Biomédica por meio da gamificação e de princípios de aprendizagem adaptativa. A
+      plataforma reúne conteúdos das disciplinas do curso em atividades interativas, como quizzes, flashcards,
+      cruzadas e outros jogos educacionais, promovendo uma aprendizagem mais ativa, dinâmica e envolvente. Além
+      disso, utiliza elementos de gamificação, como XP, níveis, conquistas e ranking entre turmas, incentivando o
+      engajamento e a continuidade dos estudos. Concebido com foco na acessibilidade cognitiva, o BioCore busca
+      oferecer uma experiência de aprendizagem mais inclusiva, considerando as necessidades de estudantes da
+      Engenharia Biomédica, especialmente estudantes neurodivergentes.
     </p>
     <div class="stats">
       <div class="stat"><b>9</b><span>Jogos</span></div>
@@ -169,9 +187,9 @@
     </div>
   </section>
 
-  <!-- 02 STACK -->
+  <!-- 03 STACK -->
   <section>
-    <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">Stack &amp; Infraestrutura</span><span class="sec-rule"></span></div>
+    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Stack &amp; Infraestrutura</span><span class="sec-rule"></span></div>
     <p class="lede">Aplicação full-stack em TypeScript, com renderização no servidor e banco de dados gerenciado — sem backend próprio para manter.</p>
     <div class="grid cols-3">
       <div class="card">
@@ -189,9 +207,9 @@
     </div>
   </section>
 
-  <!-- 03 ARCHITECTURE / ROLES -->
+  <!-- 04 ARCHITECTURE / ROLES -->
   <section>
-    <div class="sec-head"><span class="sec-num">03</span><span class="sec-title">Perfis &amp; Segurança</span><span class="sec-rule"></span></div>
+    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Perfis &amp; Segurança</span><span class="sec-rule"></span></div>
     <p class="lede">Três papéis de usuário. O controle de acesso não vive só na tela — está reforçado no próprio banco de dados via RLS, então mesmo que alguém burle a interface, o Postgres recusa a operação.</p>
     <div class="tblwrap">
       <table>
@@ -205,9 +223,9 @@
     </div>
   </section>
 
-  <!-- 04 GAMES -->
+  <!-- 05 GAMES -->
   <section>
-    <div class="sec-head"><span class="sec-num">04</span><span class="sec-title">Os 9 jogos</span><span class="sec-rule"></span></div>
+    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Os 9 jogos</span><span class="sec-rule"></span></div>
     <p class="lede">Cada jogo cobre um jeito diferente de estudar — memorização, velocidade, associação, procedimento — todos ligados às 10 disciplinas do curso.</p>
     <div class="games">
       <div class="game"><span class="icon">🧠</span><h4>Quiz</h4><p>Múltipla escolha, V/F e lacunas, com timer ajustável.</p><div class="tags"><span class="chip" style="background:var(--bio-a);color:var(--bio)">+10–30 XP</span></div></div>
@@ -222,9 +240,9 @@
     </div>
   </section>
 
-  <!-- 05 PROGRESSION -->
+  <!-- 06 PROGRESSION -->
   <section>
-    <div class="sec-head"><span class="sec-num">05</span><span class="sec-title">Progressão &amp; Engajamento</span><span class="sec-rule"></span></div>
+    <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">Progressão &amp; Engajamento</span><span class="sec-rule"></span></div>
     <p class="lede">30 níveis divididos em 6 títulos acadêmicos — a curva de XP fica mais dura conforme sobe (400 XP para o nível 2, quase 6.100 XP para o último degrau).</p>
     <div class="track">
       <div class="tier"><div class="lv">NÍVEL 1–5</div><div class="name" style="color:var(--bio)">Calouro</div></div>
@@ -241,9 +259,9 @@
     </div>
   </section>
 
-  <!-- 06 ADMIN -->
+  <!-- 07 ADMIN -->
   <section>
-    <div class="sec-head"><span class="sec-num">06</span><span class="sec-title">Painel Administrativo</span><span class="sec-rule"></span></div>
+    <div class="sec-head"><span class="sec-num">07</span><span class="sec-title">Painel Administrativo</span><span class="sec-rule"></span></div>
     <p class="lede">Tudo que aparece nos jogos é cadastrado por professores/admins nessas 5 telas — nada é hardcoded no app.</p>
     <div class="grid cols-3">
       <div class="card"><h3>👤 Usuários</h3><p>Lista todos os cadastrados e permite alterar o papel (aluno / professor / admin).</p></div>
@@ -254,9 +272,9 @@
     </div>
   </section>
 
-  <!-- 07 NAV -->
+  <!-- 08 NAV -->
   <section>
-    <div class="sec-head"><span class="sec-num">07</span><span class="sec-title">Telas &amp; Navegação</span><span class="sec-rule"></span></div>
+    <div class="sec-head"><span class="sec-num">08</span><span class="sec-title">Telas &amp; Navegação</span><span class="sec-rule"></span></div>
     <div class="nav-split">
       <div class="nav-box">
         <h4>Fluxo do aluno</h4>
@@ -279,9 +297,9 @@
     </div>
   </section>
 
-  <!-- 08 DB SNAPSHOT -->
+  <!-- 09 DB SNAPSHOT -->
   <section>
-    <div class="sec-head"><span class="sec-num">08</span><span class="sec-title">Estado atual do banco</span><span class="sec-rule"></span></div>
+    <div class="sec-head"><span class="sec-num">09</span><span class="sec-title">Estado atual do banco</span><span class="sec-rule"></span></div>
     <p class="lede">Snapshot de dados de desenvolvimento/teste no Supabase — mostra que o cadastro de conteúdo já está em uso, não é só protótipo de tela.</p>
     <div class="tblwrap">
       <table>
@@ -297,7 +315,7 @@
     </div>
   </section>
 
-  <!-- 09 CHEATSHEET -->
+  <!-- 10 CHEATSHEET -->
   <section>
     <div class="cheat">
       <h3>Roteiro rápido pra quem for apresentar</h3>
